@@ -38,7 +38,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$uuid" />/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
 }}
 <!--
-Hier müssen jetzt noch sämtliche Triple aufgeführt werden, die die obige UUID benötigen. BEACHTE die INSER DATA-Angaben!
+Hier müssen jetzt noch sämtliche Triple aufgeführt werden, die die obige UUID benötigen. BEACHTE die INSERT DATA-Angaben!
 -->
 
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
