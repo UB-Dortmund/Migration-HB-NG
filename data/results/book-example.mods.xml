@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<mods:modsCollection xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mods="http://www.loc.gov/mods/v3" xsi:schemaLocation="http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-4.xsd">
+	
+<mods xmlns="http://www.loc.gov/mods/v3" xmlns:dcterms="http://purl.org/dc/terms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <genre authority="dct" valueURI="http://purl.org/dc/dcmitype/Text"/>
+    <genre valueURI="http://purl.org/info:eu-repo/semantics/book"/>
+    <name type="personal" valueURI="http://d-nb.info/gnd/105309826" authority="gnd">
+      <namePart type="family">Wienholtz</namePart>
+      <namePart type="given">Ernst</namePart>
+      <role>
+        <roleTerm type="code" authorityURI="http://www.loc.gov/marc/relators/">aut</roleTerm>
+      </role>
+    </name>
+    <name type="personal" valueURI="http://d-nb.info/gnd/107997363" authority="gnd">
+      <namePart type="family">Kalf</namePart>
+      <namePart type="given">Hubert</namePart>
+      <role>
+        <roleTerm type="code" authorityURI="http://www.loc.gov/marc/relators/">aut</roleTerm>
+      </role>
+    </name>
+    <name type="personal" valueURI="http://d-nb.info/gnd/138641501" authority="gnd">
+      <namePart type="family">Kriecherbauer</namePart>
+      <namePart type="given">Thomas</namePart>
+      <role>
+        <roleTerm type="code" authorityURI="http://www.loc.gov/marc/relators/">aut</roleTerm>
+      </role>
+    </name>
+    <identifier type="doi">10.1007/978-3-540-45721-3</identifier>
+    <identifier type="isbn">978-3-540-45717-6</identifier>
+    <subject>
+      <topic>Elliptische Differentialgleichung</topic>
+    </subject>
+    <subject>
+      <topic>Ordnung 2</topic>
+    </subject>
+    <subject>
+      <topic>Schaudersche A-Priori-Absch&#228;tzungen</topic>
+    </subject>
+    <subject>
+      <topic>Schaudersche Theorie</topic>
+    </subject>
+    <subject>
+      <topic>Harmonische Funktion</topic>
+    </subject>
+    <subject>
+      <topic>Elliptic differential equation</topic>
+    </subject>
+    <subject>
+      <topic>Second order</topic>
+    </subject>
+    <subject>
+      <topic>Schauder's theorem</topic>
+    </subject>
+    <subject>
+      <topic>Harmonic function</topic>
+    </subject>
+    <subject>
+      <topic>Schauder estimates</topic>
+    </subject>
+    <language>
+      <languageTerm type="code" authority="iso639-2b">ger</languageTerm>
+    </language>
+    <location>
+      <physicalLocation>294</physicalLocation>
+      <shelfLocator>TLB6971</shelfLocator>
+    </location>
+    <location>
+      <physicalLocation>294/13 (294 / 13)</physicalLocation>
+      <shelfLocator>WIE</shelfLocator>
+    </location>
+    <physicalDescription>
+      <extent>XI, 401</extent>
+    </physicalDescription>
+    <typeOfResource>text</typeOfResource>
+    <genre authority="local">Book</genre>
+    <genre authority="marcgt">book</genre>
+    <titleInfo>
+      <title>Elliptische Differentialgleichungen zweiter Ordnung</title>
+      <subTitle>eine Einf&#252;hrung mit historischen Bemerkungen</subTitle>
+    </titleInfo>
+    <recordInfo>
+      <recordCreationDate encoding="iso8601">2010-03-29</recordCreationDate>
+      <recordIdentifier>c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe</recordIdentifier>
+      <recordChangeDate encoding="iso8601">2013-01-29</recordChangeDate>
+    </recordInfo>
+    <originInfo>
+      <publisher>Springer</publisher>
+      <place>
+        <placeTerm type="text">Berlin</placeTerm>
+      </place>
+      <dateIssued encoding="iso8601">2009</dateIssued>
+    </originInfo>
+    <extension>
+      <dcterms:bibliographicCitation>ctx_ver=Z39.88-2004&amp;rft_val_fmt=info:ofi/fmt:kev:mtx:book&amp;rft.genre=book&amp;rft.au=Wienholtz%2c+Ernst&amp;rft.au=Kalf%2c+Hubert&amp;rft.au=Kriecherbauer%2c+Thomas&amp;rft.btitle=Elliptische+Differentialgleichungen+zweiter+Ordnung&amp;rft.date=2009&amp;rft.tpages=XI%2c+401&amp;rft.isbn=978-3-540-45717-6&amp;rft.place=Berlin&amp;rft.pub=Springer</dcterms:bibliographicCitation>
+    </extension>
+  </mods>
+</mods:modsCollection>
