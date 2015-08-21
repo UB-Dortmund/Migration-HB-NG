@@ -20,7 +20,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="current()/mods:recordInfo/mods:recordIdentifier" />/about&gt; &lt;http://purl.org/dc/terms#created&gt; "<xsl:value-of select="current()/mods:recordInfo/mods:recordCreationDate" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="current()/mods:recordInfo/mods:recordIdentifier" />/about&gt; &lt;http://purl.org/dc/terms#modified&gt; "<xsl:value-of select="current()/mods:recordInfo/mods:recordChangeDate" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="current()/mods:recordInfo/mods:recordIdentifier" />/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
-}}
+}};
 
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="current()/mods:recordInfo/mods:recordIdentifier" />&gt; &lt;http://purl.org/dc/terms#language&gt; "<xsl:value-of select="current()/mods:language/mods:languageTerm" />" .
@@ -28,7 +28,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="current()/mods:recordInfo/mods:recordIdentifier" />&gt; &lt;http://purl.org/dc/terms#identifier&gt; "[ISBN] <xsl:value-of select="current()/mods:identifier[@type='isbn']" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="current()/mods:recordInfo/mods:recordIdentifier" />&gt; &lt;http://purl.org/dc/terms#issued&gt; "<xsl:value-of select="current()/mods:originInfo/mods:dateIssued" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="current()/mods:recordInfo/mods:recordIdentifier" />&gt; &lt;http://purl.org/dc/terms#extent&gt; "<xsl:value-of select="current()/mods:physicalDescription/mods:extent" />" .
-}}
+}};
 
             <xsl:for-each select="current()/mods:originInfo">
                 <xsl:variable name="publisher-uuid" select="uuid:randomUUID()" />
@@ -50,10 +50,10 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$publisher-uuid" />/about&gt; &lt;http://purl.org/dc/terms#created&gt; "<xsl:value-of select="current()/mods:recordInfo/mods:recordCreationDate" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$publisher-uuid" />/about&gt; &lt;http://purl.org/dc/terms#modified&gt; "<xsl:value-of select="current()/mods:recordInfo/mods:recordChangeDate" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$publisher-uuid" />/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
-}}
+}};
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="current()/mods:recordInfo/mods:recordIdentifier" />&gt; &lt;http://purl.org/dc/terms#publisher&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$publisher-uuid" />&gt; .
-}}
+}};
             </xsl:for-each>
 
             <xsl:if test="//mods:name/mods:role/mods:roleTerm = 'aut'">
@@ -73,7 +73,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$authorship-uuid" />/about&gt; &lt;http://purl.org/dc/terms#created> "<xsl:value-of select="current()/mods:recordInfo/mods:recordCreationDate" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$authorship-uuid" />/about&gt; &lt;http://purl.org/dc/terms#modified> "<xsl:value-of select="current()/mods:recordInfo/mods:recordChangeDate" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$authorship-uuid" />/about&gt; &lt;http://purl.org/dc/terms#accessRights> "public" .
-}}
+}};
                 <xsl:for-each select="current()/mods:name[@type='personal' and @authority='gnd'and starts-with(@valueURI, 'http://d-nb.info/gnd/') ]">
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://xmlns.com/foaf/0.1/Person&gt; .
@@ -94,14 +94,14 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />/about&gt; &lt;http://purl.org/dc/terms#created&gt; "<xsl:value-of select="../mods:recordInfo/mods:recordCreationDate" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />/about&gt; &lt;http://purl.org/dc/terms#modified&gt; "<xsl:value-of select="../mods:recordInfo/mods:recordChangeDate" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
-}}
+}};
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />&gt; &lt;http://vivoweb.org/ontology/core#researcherid&gt; "researcherid:<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />&gt; &lt;http://vivoweb.org/ontology/core#orcidid&gt; "orcidid:<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />&gt; &lt;http://vivoweb.org/ontology/core#scopusid&gt; "scopusid:<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />" .
 
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$authorship-uuid" />&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />&gt; .
-}}
+}};
                 </xsl:for-each>
                 <xsl:for-each select="current()/mods:name[@type='corporate' and @authority='gnd'and starts-with(@valueURI, 'http://d-nb.info/gnd/') ]">
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
@@ -123,10 +123,10 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />/about&gt; &lt;http://purl.org/dc/terms#created&gt; "<xsl:value-of select="../mods:recordInfo/mods:recordCreationDate" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />/about&gt; &lt;http://purl.org/dc/terms#modified&gt; "<xsl:value-of select="../mods:recordInfo/mods:recordChangeDate" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
-}}
+}};
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$authorship-uuid" />&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />&gt; .
-}}
+}};
                 </xsl:for-each>
             </xsl:if>
             <xsl:if test="//mods:name/mods:role/mods:roleTerm = 'edt'">
@@ -146,7 +146,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$editorship-uuid" />/about&gt; &lt;http://purl.org/dc/terms#created> "<xsl:value-of select="current()/mods:recordInfo/mods:recordCreationDate" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$editorship-uuid" />/about&gt; &lt;http://purl.org/dc/terms#modified> "<xsl:value-of select="current()/mods:recordInfo/mods:recordChangeDate" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$editorship-uuid" />/about&gt; &lt;http://purl.org/dc/terms#accessRights> "public" .
-}}
+}};
                 <xsl:for-each select="current()/mods:name[@type='personal' and @authority='gnd'and starts-with(@valueURI, 'http://d-nb.info/gnd/') ]">
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://xmlns.com/foaf/0.1/Person&gt; .
@@ -174,7 +174,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />&gt; &lt;http://vivoweb.org/ontology/core#scopusid&gt; "scopusid:<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />" .
 
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$editorship-uuid" />&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />&gt; .
-}}
+}};
                 </xsl:for-each>
                 <xsl:for-each select="current()/mods:name[@type='corporate' and @authority='gnd'and starts-with(@valueURI, 'http://d-nb.info/gnd/') ]">
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
@@ -196,10 +196,10 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />/about&gt; &lt;http://purl.org/dc/terms#created&gt; "<xsl:value-of select="../mods:recordInfo/mods:recordCreationDate" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />/about&gt; &lt;http://purl.org/dc/terms#modified&gt; "<xsl:value-of select="../mods:recordInfo/mods:recordChangeDate" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
-}}
+}};
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$editorship-uuid" />&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="substring-after(@valueURI, 'gnd/')" />&gt; .
-}}
+}};
                 </xsl:for-each>
             </xsl:if>
 
@@ -218,18 +218,18 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$uuid" />/about&gt; &lt;http://purl.org/dc/terms#created&gt; "<xsl:value-of select="../mods:recordInfo/mods:recordCreationDate" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$uuid" />/about&gt; &lt;http://purl.org/dc/terms#modified&gt; "<xsl:value-of select="../mods:recordInfo/mods:recordChangeDate" />" .
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$uuid" />/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
-}}
+}};
 <!--
 Hier müssen jetzt noch sämtliche Triple aufgeführt werden, die die obige UUID benötigen. BEACHTE die INSERT DATA-Angaben!
 -->
 
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="../mods:recordInfo/mods:recordIdentifier" />&gt; &lt;http://purl.org/dc/terms#subject&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$uuid" />&gt; .
-}}
+}};
                 <xsl:variable name="work-uuid" select="uuid:randomUUID()" />
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&gt; {
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$work-uuid" />&gt; &lt;http://rdaregistry.info/Elements/w/subjectRelationship&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$uuid" />&gt; .
-}}
+}};
             </xsl:for-each>
 
 
