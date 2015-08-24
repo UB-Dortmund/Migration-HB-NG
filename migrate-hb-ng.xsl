@@ -4,8 +4,8 @@
 
     <xsl:template match="/">
         <xsl:for-each select="//mods:mods">
-            
-            <xsl:if test="current()/mods:titleInfo and current()/mods:recordInfo and current()/mods:originInfo/mods:dateIssued">
+
+            <xsl:if test="current()/mods:titleInfo and current()/mods:recordInfo and (current()/mods:originInfo/mods:dateIssued or current()/mods:relatedItem[@type='host']/mods:part/mods:date)">
 
                 <xsl:variable name="recordIdentifier" select="current()/mods:recordInfo/mods:recordIdentifier" />
                 
@@ -34,7 +34,12 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$recordIdentifier" />&gt; &lt;http://purl.org/dc/terms#title&gt; "<xsl:value-of select="current()/mods:titleInfo[not(@type)]/mods:title" /><xsl:if test="current()/mods:titleInfo[not(@type)]/mods:subTitle"><xsl:value-of select="concat(' : ', current()/mods:titleInfo[not(@type)]/mods:subTitle)" /></xsl:if>" .
-&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$recordIdentifier" />&gt; &lt;http://purl.org/dc/terms#issued&gt; "<xsl:value-of select="current()/mods:originInfo/mods:dateIssued" />" .
+                <xsl:if test="current()/mods:originInfo/mods:dateIssued">
+                    &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$recordIdentifier" />&gt; &lt;http://purl.org/dc/terms#issued&gt; "<xsl:value-of select="current()/mods:originInfo/mods:dateIssued" />" .
+                </xsl:if>
+                <xsl:if test="current()/mods:relatedItem[@type='host']/mods:part/mods:date">
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$recordIdentifier" />&gt; &lt;http://purl.org/dc/terms#issued&gt; "<xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:part/mods:date" />" .
+                </xsl:if>
                 <xsl:if test="current()/mods:language/mods:languageTerm">
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$recordIdentifier" />&gt; &lt;http://purl.org/dc/terms#language&gt; "<xsl:value-of select="current()/mods:language/mods:languageTerm" />" .
                 </xsl:if>
@@ -379,13 +384,43 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 }};
 
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
-&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="../mods:recordInfo/mods:recordIdentifier" />&gt; &lt;http://purl.org/dc/terms#subject&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$uuid" />&gt; .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$recordIdentifier" />&gt; &lt;http://purl.org/dc/terms#subject&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$uuid" />&gt; .
 }};
                 <xsl:variable name="work-uuid" select="uuid:randomUUID()" />
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&gt; {
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$work-uuid" />&gt; &lt;http://rdaregistry.info/Elements/w/subjectRelationship&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$uuid" />&gt; .
 }};
             </xsl:for-each>
+
+                <xsl:if test="current()/mods:relatedItem[@type='host']"><xsl:variable name="journal-uuid" select="uuid:randomUUID()" />
+INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://erlangen-crm.org/efrbroo/121016/F18_Serial_Work&gt; .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://rdaregistry.info/Elements/c/Work&gt; .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://purl.org/ontology/bibo/Journal&gt; .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />&gt; &lt;http://www.w3.org/2007/05/powder-s#describedby&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />/about&gt; .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2007/05/powder-s#Document&gt; .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/ns/prov#Entity&gt; .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />/about&gt; &lt;http://www.w3.org/2007/05/powder-s#describedby&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />/about-meta&gt; .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />/about&gt; &lt;http://erlangen-crm.org/efrbroo/121016/P70_documents&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />&gt; .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />/about&gt; &lt;http://creativecommons.org/ns#licence&gt; &lt;http://creativecommons.org/publicdomain/zero/1.0/legalcode&gt; .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />/about&gt; &lt;http://creativecommons.org/ns#attributionURL&gt; &lt;http://www.ub.rub.de&gt; .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />/about&gt; &lt;http://creativecommons.org/ns#attributionName&gt; "Ruhr-Universit\u00E4t Bochum, University Library" .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />/about&gt; &lt;http://purl.org/dc/terms#created&gt; "2009-11-23" .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />/about&gt; &lt;http://purl.org/dc/terms#modified&gt; "2013-01-28" .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
+
+<!-- isPartOf / hasPart -->
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$recordIdentifier" />&gt; &lt;http://purl.org/dc/terms#isPartOf&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />&gt; .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />&gt; &lt;http://purl.org/dc/terms#hasPart&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$recordIdentifier" />&gt; .
+
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />&gt; &lt;http://purl.org/dc/terms#title&gt; "<xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:titleInfo[not(@type)]/mods:title" /><xsl:if test="current()/mods:relatedItem[@type='host']/mods:titleInfo[not(@type)]/mods:subTitle"><xsl:value-of select="concat(' : ', current()/mods:relatedItem[@type='host']/mods:titleInfo[not(@type)]/mods:subTitle)" /></xsl:if>" .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />&gt; &lt;http://purl.org/dc/terms#description&gt; "<xsl:value-of select="concat('volume ', current()/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='volume']/mods:number, ',  issue ', current()/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='issue']/mods:number)" />" .
+                    <xsl:if test="current()/mods:relatedItem[@type='host']/mods:identifier[@type='issn']">
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />&gt; &lt;http://purl.org/dc/terms#identifier&gt; "[ISSN] <xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:identifier[@type='issn']" />" .
+                    </xsl:if>
+}};
+                </xsl:if>
+
 
             </xsl:if>
         </xsl:for-each>

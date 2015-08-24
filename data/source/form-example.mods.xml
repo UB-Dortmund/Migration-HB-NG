@@ -1,8 +1,9 @@
-<modsCollection xmlns:dcterms="http://purl.org/dc/terms" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.loc.gov/mods/v3">
+<?xml version="1.0" encoding="UTF-8"?>
+<modsCollection xmlns="http://www.loc.gov/mods/v3" xmlns:dcterms="http://purl.org/dc/terms" xmlns:xlink="http://www.w3.org/1999/xlink">
     <mods>
         <recordInfo>
-            <recordIdentifier>d4635fd4-cb6f-4262-843f-4773f648b7e7</recordIdentifier>
-            <recordCreationDate>2015-08-24</recordCreationDate>
+            <recordCreationDate encoding="iso8601">2015-08-24T13:30:36.304189</recordCreationDate>
+            <recordIdentifier>419b8113-b194-4a72-a310-073c28d82e10</recordIdentifier>
         </recordInfo>
         <titleInfo>
             <title>Die unendlichen Wuppungen des Seins</title>
@@ -15,17 +16,28 @@
             </role>
         </name>
         <name type="personal">
-            <namePart type="given">pan</namePart>
-            <namePart type="family">petra</namePart>
+            <namePart type="family">pan</namePart>
+            <namePart type="given">petra</namePart>
             <role>
                 <roleTerm type="code" authorityURI="http://www.loc.gov/marc/relators/">aut</roleTerm>
             </role>
         </name>
         <language>
-            <languageTerm type="code" authority="iso639-2b">english</languageTerm>
+            <languageTerm type="code" authority="iso639-2b">ger</languageTerm>
         </language>
-        <originInfo>
-            <dateIssued>2010</dateIssued>
-        </originInfo>
+        <relatedItem type="host">
+            <titleInfo>
+                <title>Unwegbarkeiten und andere Stolpersteine</title>
+            </titleInfo>
+            <part>
+                <detail type="issue">
+                    <number>1</number>
+                </detail>
+                <detail type="volume">
+                    <number>1</number>
+                </detail>
+                <date encoding="iso8601">1992</date>
+            </part>
+        </relatedItem>
     </mods>
 </modsCollection>
