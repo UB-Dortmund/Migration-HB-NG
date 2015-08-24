@@ -1,0 +1,31 @@
+<modsCollection xmlns:dcterms="http://purl.org/dc/terms" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.loc.gov/mods/v3">
+    <mods>
+        <recordInfo>
+            <recordIdentifier>d4635fd4-cb6f-4262-843f-4773f648b7e7</recordIdentifier>
+            <recordCreationDate>2015-08-24</recordCreationDate>
+        </recordInfo>
+        <titleInfo>
+            <title>Die unendlichen Wuppungen des Seins</title>
+        </titleInfo>
+        <name type="personal">
+            <namePart type="family">pan</namePart>
+            <namePart type="given">peter</namePart>
+            <role>
+                <roleTerm type="code" authorityURI="http://www.loc.gov/marc/relators/">aut</roleTerm>
+            </role>
+        </name>
+        <name type="personal">
+            <namePart type="given">pan</namePart>
+            <namePart type="family">petra</namePart>
+            <role>
+                <roleTerm type="code" authorityURI="http://www.loc.gov/marc/relators/">aut</roleTerm>
+            </role>
+        </name>
+        <language>
+            <languageTerm type="code" authority="iso639-2b">english</languageTerm>
+        </language>
+        <originInfo>
+            <dateIssued>2010</dateIssued>
+        </originInfo>
+    </mods>
+</modsCollection>

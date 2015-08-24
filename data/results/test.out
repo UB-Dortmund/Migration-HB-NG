@@ -1,402 +1,97 @@
 
+                
 INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/main-entities-public> {
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.eurocris.org/ontologies/semcerif/1.3#cfResPubl> .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://erlangen-crm.org/efrbroo/121016/F22_Self-Contained_Expression> .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rdaregistry.info/Elements/c/Expression> .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe/about> .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe/about-meta> .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe/about> <http://purl.org/dc/terms#created> "2010-03-29" .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe/about> <http://purl.org/dc/terms#modified> "2013-01-29" .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe/about> <http://purl.org/dc/terms#accessRights> "public" .
-}}
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.eurocris.org/ontologies/semcerif/1.3#cfResPubl> .
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://erlangen-crm.org/efrbroo/121016/F22_Self-Contained_Expression> .
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rdaregistry.info/Elements/c/Expression> .
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://purl.org/ontology/bibo/Document> .
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7/about> .
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7/about-meta> .
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7> .
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7/about> <http://purl.org/dc/terms#created> "2015-08-24" .
+                
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7/about> <http://purl.org/dc/terms#accessRights> "public" .
+}};
 
 INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-vivo-public> {
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://purl.org/dc/terms#language> "ger" .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://purl.org/dc/terms#identifier> "[DOI] 10.1007/978-3-540-45721-3" .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://purl.org/dc/terms#identifier> "[ISBN] 978-3-540-45717-6" .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://purl.org/dc/terms#issued> "2009" .
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://purl.org/dc/terms#extent> "XI, 401" .
-}}
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7> <http://purl.org/dc/terms#title> "Die unendlichen Wuppungen des Seins" .
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7> <http://purl.org/dc/terms#issued> "2010" .
+                
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7> <http://purl.org/dc/terms#language> "english" .
+                
+}};
 
             
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/main-entities-public> {
-<http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/#Organization> .
-<http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.eurocris.org/ontologies/semcerif/1.3#cfOrgUnit> .
-<http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Organization> .
-<http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://erlangen-crm.org/efrbroo/121016/F11_Corporate_Body> .
-<http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Organization> .
-<http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494> <http://xmlns.com/foaf/0.1/#name> "Springer" .
-<http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494/about> .
-<http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
-<http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494/about-meta> .
-<http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494> .
-<http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
-<http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
-<http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
-<http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494/about> <http://purl.org/dc/terms#created> "" .
-<http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494/about> <http://purl.org/dc/terms#modified> "" .
-<http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494/about> <http://purl.org/dc/terms#accessRights> "public" .
-}}
 INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-vivo-public> {
-<http://data.ub.tu-dortmund.de/resource/> <http://purl.org/dc/terms#publisher> <http://data.ub.tu-dortmund.de/resource/1356afb4-00a7-4734-8e1a-b9cc28ef2494> .
-}}
-            
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-vivo-public> {
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://vivoweb.org/ontology/core#relatedBy> <http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316> .
-<http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://vivoweb.org/ontology/core#Authorship> .
-<http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316> <http://vivoweb.org/ontology/core#relates> <http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> .
-<http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316/about> .
-<http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
-<http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316/about-meta> .
-<http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316> .
-<http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
-<http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
-<http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
-<http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316/about> <http://purl.org/dc/terms#created> "2010-03-29" .
-<http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316/about> <http://purl.org/dc/terms#modified> "2013-01-29" .
-<http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316/about> <http://purl.org/dc/terms#accessRights> "public" .
-}}
+<http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7> <http://vivoweb.org/ontology/core#relatedBy> <http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c> .
+<http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://vivoweb.org/ontology/core#Authorship> .
+<http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c> <http://vivoweb.org/ontology/core#relates> <http://data.ub.tu-dortmund.de/resource/d4635fd4-cb6f-4262-843f-4773f648b7e7> .
+<http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c/about> .
+<http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
+<http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
+<http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c/about-meta> .
+<http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c> .
+<http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
+<http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
+<http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
+<http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c/about> <http://purl.org/dc/terms#created> "2015-08-24" .
+                
+<http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c/about> <http://purl.org/dc/terms#accessRights> "public" .
+}};
+                
                 
 INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/main-entities-public> {
-<http://data.ub.tu-dortmund.de/resource/105309826> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
-<http://data.ub.tu-dortmund.de/resource/105309826> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.eurocris.org/ontologies/semcerif/1.3#cfPers> .
-<http://data.ub.tu-dortmund.de/resource/105309826> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Person> .
-<http://data.ub.tu-dortmund.de/resource/105309826> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://erlangen-crm.org/efrbroo/121016/F10_Person> .
-<http://data.ub.tu-dortmund.de/resource/105309826> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rdaregistry.info/Elements/c/Person> .
-<http://data.ub.tu-dortmund.de/resource/105309826> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Person> .
-<http://data.ub.tu-dortmund.de/resource/105309826> <http://www.w3.org/2007/05/powder-s#describedby> <http://d-nb.info/gnd/105309826> .
-<http://data.ub.tu-dortmund.de/resource/105309826> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/105309826/about> .
-<http://data.ub.tu-dortmund.de/resource/105309826/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
-<http://data.ub.tu-dortmund.de/resource/105309826/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<http://data.ub.tu-dortmund.de/resource/105309826/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/105309826/about-meta> .
-<http://data.ub.tu-dortmund.de/resource/105309826/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/105309826> .
-<http://data.ub.tu-dortmund.de/resource/105309826/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
-<http://data.ub.tu-dortmund.de/resource/105309826/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
-<http://data.ub.tu-dortmund.de/resource/105309826/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
-<http://data.ub.tu-dortmund.de/resource/105309826/about> <http://purl.org/dc/terms#created> "2010-03-29" .
-<http://data.ub.tu-dortmund.de/resource/105309826/about> <http://purl.org/dc/terms#modified> "2013-01-29" .
-<http://data.ub.tu-dortmund.de/resource/105309826/about> <http://purl.org/dc/terms#accessRights> "public" .
-}}
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.eurocris.org/ontologies/semcerif/1.3#cfPers> .
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Person> .
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://erlangen-crm.org/efrbroo/121016/F10_Person> .
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rdaregistry.info/Elements/c/Person> .
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Person> .
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2> <http://xmlns.com/foaf/0.1/familyName> "pan" .
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2> <http://xmlns.com/foaf/0.1/givenName> "peter" .
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2> <http://xmlns.com/foaf/0.1/name> "pan, peter" .
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2/about-meta> .
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2> .
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2/about> <http://purl.org/dc/terms#created> "2015-08-24" .
+                    
+<http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2/about> <http://purl.org/dc/terms#accessRights> "public" .
+}};
 INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-vivo-public> {
-<http://data.ub.tu-dortmund.de/resource/105309826> <http://vivoweb.org/ontology/core#researcherid> "researcherid:105309826" .
-<http://data.ub.tu-dortmund.de/resource/105309826> <http://vivoweb.org/ontology/core#orcidid> "orcidid:105309826" .
-<http://data.ub.tu-dortmund.de/resource/105309826> <http://vivoweb.org/ontology/core#scopusid> "scopusid:105309826" .
-
-<http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316> <http://vivoweb.org/ontology/core#relates> <http://data.ub.tu-dortmund.de/resource/105309826> .
-}}
+<http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c> <http://vivoweb.org/ontology/core#relates> <http://data.ub.tu-dortmund.de/resource/2685c3d7-2710-4172-8f1d-aad2ef98cec2> .
+}};
                 
 INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/main-entities-public> {
-<http://data.ub.tu-dortmund.de/resource/107997363> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
-<http://data.ub.tu-dortmund.de/resource/107997363> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.eurocris.org/ontologies/semcerif/1.3#cfPers> .
-<http://data.ub.tu-dortmund.de/resource/107997363> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Person> .
-<http://data.ub.tu-dortmund.de/resource/107997363> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://erlangen-crm.org/efrbroo/121016/F10_Person> .
-<http://data.ub.tu-dortmund.de/resource/107997363> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rdaregistry.info/Elements/c/Person> .
-<http://data.ub.tu-dortmund.de/resource/107997363> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Person> .
-<http://data.ub.tu-dortmund.de/resource/107997363> <http://www.w3.org/2007/05/powder-s#describedby> <http://d-nb.info/gnd/107997363> .
-<http://data.ub.tu-dortmund.de/resource/107997363> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/107997363/about> .
-<http://data.ub.tu-dortmund.de/resource/107997363/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
-<http://data.ub.tu-dortmund.de/resource/107997363/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<http://data.ub.tu-dortmund.de/resource/107997363/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/107997363/about-meta> .
-<http://data.ub.tu-dortmund.de/resource/107997363/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/107997363> .
-<http://data.ub.tu-dortmund.de/resource/107997363/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
-<http://data.ub.tu-dortmund.de/resource/107997363/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
-<http://data.ub.tu-dortmund.de/resource/107997363/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
-<http://data.ub.tu-dortmund.de/resource/107997363/about> <http://purl.org/dc/terms#created> "2010-03-29" .
-<http://data.ub.tu-dortmund.de/resource/107997363/about> <http://purl.org/dc/terms#modified> "2013-01-29" .
-<http://data.ub.tu-dortmund.de/resource/107997363/about> <http://purl.org/dc/terms#accessRights> "public" .
-}}
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.eurocris.org/ontologies/semcerif/1.3#cfPers> .
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Person> .
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://erlangen-crm.org/efrbroo/121016/F10_Person> .
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rdaregistry.info/Elements/c/Person> .
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Person> .
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19> <http://xmlns.com/foaf/0.1/familyName> "petra" .
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19> <http://xmlns.com/foaf/0.1/givenName> "pan" .
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19> <http://xmlns.com/foaf/0.1/name> "petra, pan" .
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19/about-meta> .
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19> .
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19/about> <http://purl.org/dc/terms#created> "2015-08-24" .
+                    
+<http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19/about> <http://purl.org/dc/terms#accessRights> "public" .
+}};
 INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-vivo-public> {
-<http://data.ub.tu-dortmund.de/resource/107997363> <http://vivoweb.org/ontology/core#researcherid> "researcherid:107997363" .
-<http://data.ub.tu-dortmund.de/resource/107997363> <http://vivoweb.org/ontology/core#orcidid> "orcidid:107997363" .
-<http://data.ub.tu-dortmund.de/resource/107997363> <http://vivoweb.org/ontology/core#scopusid> "scopusid:107997363" .
-
-<http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316> <http://vivoweb.org/ontology/core#relates> <http://data.ub.tu-dortmund.de/resource/107997363> .
-}}
+<http://data.ub.tu-dortmund.de/resource/c0a32a44-fc78-4852-86c8-6173fe33405c> <http://vivoweb.org/ontology/core#relates> <http://data.ub.tu-dortmund.de/resource/bba6afb4-3869-4916-bf83-b96b5bd73f19> .
+}};
                 
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/main-entities-public> {
-<http://data.ub.tu-dortmund.de/resource/138641501> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://xmlns.com/foaf/0.1/Person> .
-<http://data.ub.tu-dortmund.de/resource/138641501> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.eurocris.org/ontologies/semcerif/1.3#cfPers> .
-<http://data.ub.tu-dortmund.de/resource/138641501> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Person> .
-<http://data.ub.tu-dortmund.de/resource/138641501> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://erlangen-crm.org/efrbroo/121016/F10_Person> .
-<http://data.ub.tu-dortmund.de/resource/138641501> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://rdaregistry.info/Elements/c/Person> .
-<http://data.ub.tu-dortmund.de/resource/138641501> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Person> .
-<http://data.ub.tu-dortmund.de/resource/138641501> <http://www.w3.org/2007/05/powder-s#describedby> <http://d-nb.info/gnd/138641501> .
-<http://data.ub.tu-dortmund.de/resource/138641501> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/138641501/about> .
-<http://data.ub.tu-dortmund.de/resource/138641501/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
-<http://data.ub.tu-dortmund.de/resource/138641501/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<http://data.ub.tu-dortmund.de/resource/138641501/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/138641501/about-meta> .
-<http://data.ub.tu-dortmund.de/resource/138641501/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/138641501> .
-<http://data.ub.tu-dortmund.de/resource/138641501/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
-<http://data.ub.tu-dortmund.de/resource/138641501/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
-<http://data.ub.tu-dortmund.de/resource/138641501/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
-<http://data.ub.tu-dortmund.de/resource/138641501/about> <http://purl.org/dc/terms#created> "2010-03-29" .
-<http://data.ub.tu-dortmund.de/resource/138641501/about> <http://purl.org/dc/terms#modified> "2013-01-29" .
-<http://data.ub.tu-dortmund.de/resource/138641501/about> <http://purl.org/dc/terms#accessRights> "public" .
-}}
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-vivo-public> {
-<http://data.ub.tu-dortmund.de/resource/138641501> <http://vivoweb.org/ontology/core#researcherid> "researcherid:138641501" .
-<http://data.ub.tu-dortmund.de/resource/138641501> <http://vivoweb.org/ontology/core#orcidid> "orcidid:138641501" .
-<http://data.ub.tu-dortmund.de/resource/138641501> <http://vivoweb.org/ontology/core#scopusid> "scopusid:138641501" .
-
-<http://data.ub.tu-dortmund.de/resource/5406bdbb-7528-419d-9eed-9d9ca2279316> <http://vivoweb.org/ontology/core#relates> <http://data.ub.tu-dortmund.de/resource/138641501> .
-}}
-                
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/main-entities-public> {
-<http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
-<http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c> <http://www.w3.org/2004/02/skos/core#prefLabel> "Elliptische Differentialgleichung" .
-<http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c/about> .
-<http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
-<http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c/about-meta> .
-<http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c> .
-<http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
-<http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
-<http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
-<http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c/about> <http://purl.org/dc/terms#created> "2010-03-29" .
-<http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c/about> <http://purl.org/dc/terms#modified> "2013-01-29" .
-<http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c/about> <http://purl.org/dc/terms#accessRights> "public" .
-}}
-
-
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-vivo-public> {
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://purl.org/dc/terms#subject> <http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c> .
-}}
-                
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-internal-public> {
-<http://data.ub.tu-dortmund.de/resource/97c6fba3-44b5-46ec-905c-b5b1bf7840d1> <http://rdaregistry.info/Elements/w/subjectRelationship> <http://data.ub.tu-dortmund.de/resource/d97b27dd-fa22-4d6c-a0e9-f5124ae07a6c> .
-}}
-            
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/main-entities-public> {
-<http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
-<http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c> <http://www.w3.org/2004/02/skos/core#prefLabel> "Ordnung 2" .
-<http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c/about> .
-<http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
-<http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c/about-meta> .
-<http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c> .
-<http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
-<http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
-<http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
-<http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c/about> <http://purl.org/dc/terms#created> "2010-03-29" .
-<http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c/about> <http://purl.org/dc/terms#modified> "2013-01-29" .
-<http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c/about> <http://purl.org/dc/terms#accessRights> "public" .
-}}
-
-
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-vivo-public> {
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://purl.org/dc/terms#subject> <http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c> .
-}}
-                
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-internal-public> {
-<http://data.ub.tu-dortmund.de/resource/fde21945-8f63-4823-ac5d-31b9b55d265f> <http://rdaregistry.info/Elements/w/subjectRelationship> <http://data.ub.tu-dortmund.de/resource/3d5e66ab-51fa-4ce7-b9f3-cab6d3cc1c5c> .
-}}
-            
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/main-entities-public> {
-<http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
-<http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb> <http://www.w3.org/2004/02/skos/core#prefLabel> "Schaudersche A-Priori-Abschätzungen" .
-<http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb/about> .
-<http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
-<http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb/about-meta> .
-<http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb> .
-<http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
-<http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
-<http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
-<http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb/about> <http://purl.org/dc/terms#created> "2010-03-29" .
-<http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb/about> <http://purl.org/dc/terms#modified> "2013-01-29" .
-<http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb/about> <http://purl.org/dc/terms#accessRights> "public" .
-}}
-
-
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-vivo-public> {
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://purl.org/dc/terms#subject> <http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb> .
-}}
-                
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-internal-public> {
-<http://data.ub.tu-dortmund.de/resource/e424866b-92bf-472e-9857-70c00f290d85> <http://rdaregistry.info/Elements/w/subjectRelationship> <http://data.ub.tu-dortmund.de/resource/28769812-d199-4a29-8eae-1ebeaf192afb> .
-}}
-            
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/main-entities-public> {
-<http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
-<http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e> <http://www.w3.org/2004/02/skos/core#prefLabel> "Schaudersche Theorie" .
-<http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e/about> .
-<http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
-<http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e/about-meta> .
-<http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e> .
-<http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
-<http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
-<http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
-<http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e/about> <http://purl.org/dc/terms#created> "2010-03-29" .
-<http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e/about> <http://purl.org/dc/terms#modified> "2013-01-29" .
-<http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e/about> <http://purl.org/dc/terms#accessRights> "public" .
-}}
-
-
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-vivo-public> {
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://purl.org/dc/terms#subject> <http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e> .
-}}
-                
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-internal-public> {
-<http://data.ub.tu-dortmund.de/resource/fa753628-ab7b-45c5-ab9e-a086f5258046> <http://rdaregistry.info/Elements/w/subjectRelationship> <http://data.ub.tu-dortmund.de/resource/d62844c6-29c4-4a49-b0c2-e543e197df7e> .
-}}
-            
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/main-entities-public> {
-<http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
-<http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead> <http://www.w3.org/2004/02/skos/core#prefLabel> "Harmonische Funktion" .
-<http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead/about> .
-<http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
-<http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead/about-meta> .
-<http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead> .
-<http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
-<http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
-<http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
-<http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead/about> <http://purl.org/dc/terms#created> "2010-03-29" .
-<http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead/about> <http://purl.org/dc/terms#modified> "2013-01-29" .
-<http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead/about> <http://purl.org/dc/terms#accessRights> "public" .
-}}
-
-
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-vivo-public> {
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://purl.org/dc/terms#subject> <http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead> .
-}}
-                
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-internal-public> {
-<http://data.ub.tu-dortmund.de/resource/7210fe63-600c-49dc-9671-0261e566b861> <http://rdaregistry.info/Elements/w/subjectRelationship> <http://data.ub.tu-dortmund.de/resource/a7b4f5b1-e23b-40ce-8dff-10d974b06ead> .
-}}
-            
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/main-entities-public> {
-<http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
-<http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158> <http://www.w3.org/2004/02/skos/core#prefLabel> "Elliptic differential equation" .
-<http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158/about> .
-<http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
-<http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158/about-meta> .
-<http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158> .
-<http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
-<http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
-<http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
-<http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158/about> <http://purl.org/dc/terms#created> "2010-03-29" .
-<http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158/about> <http://purl.org/dc/terms#modified> "2013-01-29" .
-<http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158/about> <http://purl.org/dc/terms#accessRights> "public" .
-}}
-
-
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-vivo-public> {
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://purl.org/dc/terms#subject> <http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158> .
-}}
-                
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-internal-public> {
-<http://data.ub.tu-dortmund.de/resource/addb0487-732e-4a54-bd3c-99d47e9d3a1f> <http://rdaregistry.info/Elements/w/subjectRelationship> <http://data.ub.tu-dortmund.de/resource/a7fdd882-f36e-4145-9a9c-898724178158> .
-}}
-            
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/main-entities-public> {
-<http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
-<http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f> <http://www.w3.org/2004/02/skos/core#prefLabel> "Second order" .
-<http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f/about> .
-<http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
-<http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f/about-meta> .
-<http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f> .
-<http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
-<http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
-<http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
-<http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f/about> <http://purl.org/dc/terms#created> "2010-03-29" .
-<http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f/about> <http://purl.org/dc/terms#modified> "2013-01-29" .
-<http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f/about> <http://purl.org/dc/terms#accessRights> "public" .
-}}
-
-
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-vivo-public> {
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://purl.org/dc/terms#subject> <http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f> .
-}}
-                
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-internal-public> {
-<http://data.ub.tu-dortmund.de/resource/c8a18c12-e28d-414e-aa60-096f42c429e3> <http://rdaregistry.info/Elements/w/subjectRelationship> <http://data.ub.tu-dortmund.de/resource/fded8d94-78f1-4c1e-a560-b1e69eb2ed9f> .
-}}
-            
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/main-entities-public> {
-<http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
-<http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d> <http://www.w3.org/2004/02/skos/core#prefLabel> "Schauder's theorem" .
-<http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d/about> .
-<http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
-<http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d/about-meta> .
-<http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d> .
-<http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
-<http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
-<http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
-<http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d/about> <http://purl.org/dc/terms#created> "2010-03-29" .
-<http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d/about> <http://purl.org/dc/terms#modified> "2013-01-29" .
-<http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d/about> <http://purl.org/dc/terms#accessRights> "public" .
-}}
-
-
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-vivo-public> {
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://purl.org/dc/terms#subject> <http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d> .
-}}
-                
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-internal-public> {
-<http://data.ub.tu-dortmund.de/resource/9359321e-f0b5-4404-991a-caabaa307dff> <http://rdaregistry.info/Elements/w/subjectRelationship> <http://data.ub.tu-dortmund.de/resource/508e11e6-c051-44fb-8433-6b677fa0d58d> .
-}}
-            
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/main-entities-public> {
-<http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
-<http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18> <http://www.w3.org/2004/02/skos/core#prefLabel> "Harmonic function" .
-<http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18/about> .
-<http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
-<http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18/about-meta> .
-<http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18> .
-<http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
-<http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
-<http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
-<http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18/about> <http://purl.org/dc/terms#created> "2010-03-29" .
-<http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18/about> <http://purl.org/dc/terms#modified> "2013-01-29" .
-<http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18/about> <http://purl.org/dc/terms#accessRights> "public" .
-}}
-
-
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-vivo-public> {
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://purl.org/dc/terms#subject> <http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18> .
-}}
-                
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-internal-public> {
-<http://data.ub.tu-dortmund.de/resource/4776714c-0c9c-48c2-b8ef-7ebc70131795> <http://rdaregistry.info/Elements/w/subjectRelationship> <http://data.ub.tu-dortmund.de/resource/d29fca2a-95ee-4575-8412-308978ac3e18> .
-}}
-            
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/main-entities-public> {
-<http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2004/02/skos/core#Concept> .
-<http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c> <http://www.w3.org/2004/02/skos/core#prefLabel> "Schauder estimates" .
-<http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c/about> .
-<http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2007/05/powder-s#Document> .
-<http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c/about> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/ns/prov#Entity> .
-<http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c/about> <http://www.w3.org/2007/05/powder-s#describedby> <http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c/about-meta> .
-<http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c/about> <http://erlangen-crm.org/efrbroo/121016/P70_documents> <http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c> .
-<http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c/about> <http://creativecommons.org/ns#licence> <http://creativecommons.org/publicdomain/zero/1.0/legalcode> .
-<http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c/about> <http://creativecommons.org/ns#attributionURL> <http://www.ub.rub.de> .
-<http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c/about> <http://creativecommons.org/ns#attributionName> "Ruhr-Universit\u00E4t Bochum, University Library" .
-<http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c/about> <http://purl.org/dc/terms#created> "2010-03-29" .
-<http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c/about> <http://purl.org/dc/terms#modified> "2013-01-29" .
-<http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c/about> <http://purl.org/dc/terms#accessRights> "public" .
-}}
-
-
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-vivo-public> {
-<http://data.ub.tu-dortmund.de/resource/c8ab7d97-47a6-4647-acc6-f5f0fe05a5fe> <http://purl.org/dc/terms#subject> <http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c> .
-}}
-                
-INSERT DATA { GRAPH <http://data.ub.tu-dortmund.de/graph/ap-internal-public> {
-<http://data.ub.tu-dortmund.de/resource/fa1530d7-475b-437a-ab33-c744132c138d> <http://rdaregistry.info/Elements/w/subjectRelationship> <http://data.ub.tu-dortmund.de/resource/a5425c83-cfb1-4ce6-8d80-36314332228c> .
-}}
-            
