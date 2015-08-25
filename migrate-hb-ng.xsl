@@ -414,7 +414,12 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />&gt; &lt;http://purl.org/dc/terms#hasPart&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$recordIdentifier" />&gt; .
 
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />&gt; &lt;http://purl.org/dc/terms#title&gt; "<xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:titleInfo[not(@type)]/mods:title" /><xsl:if test="current()/mods:relatedItem[@type='host']/mods:titleInfo[not(@type)]/mods:subTitle"><xsl:value-of select="concat(' : ', current()/mods:relatedItem[@type='host']/mods:titleInfo[not(@type)]/mods:subTitle)" /></xsl:if>" .
-&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />&gt; &lt;http://purl.org/dc/terms#description&gt; "<xsl:value-of select="concat('volume ', current()/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='volume']/mods:number, ',  issue ', current()/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='issue']/mods:number)" />" .
+                    <xsl:if test="current()/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='volume']/mods:number">
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />&gt; &lt;http://purl.org/ontology/bibo/volume&gt; "<xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='volume']/mods:number" />" .
+                    </xsl:if>
+                    <xsl:if test="current()/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='issue']/mods:number">
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />&gt; &lt;http://purl.org/ontology/bibo/issue&gt; "<xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='issue']/mods:number" />" .
+                    </xsl:if>
                     <xsl:if test="current()/mods:relatedItem[@type='host']/mods:identifier[@type='issn']">
 &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$journal-uuid" />&gt; &lt;http://purl.org/dc/terms#identifier&gt; "[ISSN] <xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:identifier[@type='issn']" />" .
                     </xsl:if>
