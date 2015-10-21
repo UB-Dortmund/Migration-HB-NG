@@ -66,6 +66,35 @@
         &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$recordIdentifier"/>&gt; &lt;<xsl:value-of select="$uri"/>&gt; &lt;<xsl:value-of select="$baseuri" />const/<xsl:value-of select="$uuid"/>&gt; .
         }};
     </xsl:template>
+    
+    <xsl:template name="person">
+		<xsl:param name="vivoweb"/>
+		<xsl:variable name="uuid" select="uuid:randomUUID()"/>
+		<xsl:variable name="recordIdentifier" select="current()/mods:recordInfo/mods:recordIdentifier"/>
+        <xsl:variable name="creationDate" select="current()/mods:recordInfo/mods:recordCreationDate"/>
+        <xsl:variable name="changeDate" select="current()/mods:recordInfo/mods:recordChangeDate"/>
+                   
+                    INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
+                    &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://vivoweb.org/ontology/core#relatedBy&gt; &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>&gt; .
+                    &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://vivoweb.org/ontology/core#<xsl:value-of select="$vivoweb"/>&gt; .
+                    &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$recordIdentifier"/>&gt; .
+                    &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/2007/05/powder-s#describedby&gt; &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>/about&gt; .
+                    &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2007/05/powder-s#Document&gt; .
+                    &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/ns/prov#Entity&gt; .
+                    &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>/about&gt; &lt;http://www.w3.org/2007/05/powder-s#describedby&gt; &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>/about-meta&gt; .
+                    &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>/about&gt; &lt;http://erlangen-crm.org/efrbroo/121016/P70_documents&gt; &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>&gt; .
+                    &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>/about&gt; &lt;http://creativecommons.org/ns#licence&gt; &lt;http://creativecommons.org/publicdomain/zero/1.0/legalcode&gt; .
+                    &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>/about&gt; &lt;http://creativecommons.org/ns#attributionURL&gt; &lt;http://www.ub.rub.de&gt; .
+                    &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>/about&gt; &lt;http://creativecommons.org/ns#attributionName&gt; "Ruhr-Universit\u00E4t Bochum, University Library" .
+                    &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>/about&gt; &lt;http://purl.org/dc/terms#created> "<xsl:value-of select="$creationDate"/>" .
+                    <xsl:if test="$changeDate != ''">
+                        &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>/about&gt; &lt;http://purl.org/dc/terms#modified&gt; "<xsl:value-of select="$changeDate"/>" .
+                    </xsl:if>
+                    &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>/about&gt; &lt;http://purl.org/dc/terms#accessRights> "public" .
+                    }};
+		
+    </xsl:template>
+    
     <xsl:template match="/">
 
         <xsl:for-each select="//mods:mods">
@@ -219,6 +248,20 @@
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/MediaType' "/>
                     </xsl:call-template>
                 </xsl:if>
+
+                <xsl:if test="current()/mods:recordInfo/mods:recordCreationDate">
+                    <xsl:call-template name="uuid">
+                        <xsl:with-param name="output" select="current()/mods:recordInfo/mods:recordCreationDate"/>
+                        <xsl:with-param name="uri" select=" 'http://www.loc.gov/standards/mods/userguide/recordinfo.html#recordcreationdate' "/>
+                    </xsl:call-template>
+                </xsl:if>                
+
+                <xsl:if test="current()/mods:recordInfo/mods:recordChangeDate">
+                    <xsl:call-template name="uuid">
+                        <xsl:with-param name="output" select="current()/mods:recordInfo/mods:recordChangeDate"/>
+                        <xsl:with-param name="uri" select=" 'http://www.loc.gov/standards/mods/userguide/recordinfo.html#recordchangedate' "/>
+                    </xsl:call-template>
+                </xsl:if>                 
 
                 <xsl:if test="current()/mods:originInfo/mods:place/mods:placeTerm[@type='text']">
                     <xsl:call-template name="uuid">
