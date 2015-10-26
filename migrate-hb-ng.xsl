@@ -120,11 +120,25 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         </xsl:if>
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
 }};    
+<xsl:choose>
+<xsl:when test="$persOrg='Person'"> 
+INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
+&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>&gt; &lt;http://vivoweb.org/ontology/core#researcherid&gt; "researcherid:<xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>" .
+&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>&gt; &lt;http://vivoweb.org/ontology/core#orcidid&gt; "orcidid:<xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>" .
+&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>&gt; &lt;http://vivoweb.org/ontology/core#scopusid&gt; "scopusid:<xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>" .
+
+&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$shipUUID"/>&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>&gt; .
+}};
+</xsl:when>
+<xsl:otherwise>
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$shipUUID"/>&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>&gt; .
 }};
+</xsl:otherwise>
+</xsl:choose>
     </xsl:template>
     
+    <!--zusätzlich zu withoutGND muss withoutSec oder withoutEdtCor aufgerufen werden-->
     <xsl:template name="withoutGND">
     	<xsl:param name="persOrg"/>
 		<xsl:param name="cerifURI"/>			
@@ -142,11 +156,9 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://erlangen-crm.org/efrbroo/121016/<xsl:value-of select="$crmURI"/>&gt; .
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://rdaregistry.info/Elements/c/<xsl:value-of select="$rdaURI"/>&gt; .
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/ns/prov#<xsl:value-of select="$persOrg"/>&gt; .
-<xsl:if test="$persOrg='Person'">
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>&gt; &lt;http://xmlns.com/foaf/0.1/familyName&gt; "<xsl:value-of select="current()/mods:namePart[@type='family']"/>" .
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>&gt; &lt;http://xmlns.com/foaf/0.1/givenName&gt; "<xsl:value-of select="current()/mods:namePart[@type='given']"/>" .
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>&gt; &lt;http://xmlns.com/foaf/0.1/name&gt; "<xsl:value-of select="concat(current()/mods:namePart[@type='family'],', ',current()/mods:namePart[@type='given'])"/>" .
-</xsl:if>
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2007/05/powder-s#Document&gt; .
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/ns/prov#Entity&gt; .
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>/about&gt; &lt;http://www.w3.org/2007/05/powder-s#describedby&gt; &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>/about-meta&gt; .
@@ -160,10 +172,33 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                         </xsl:if>
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
 }};
+    </xsl:template>
+    
+    
+<!--zweite Insert-Data-Anweisung zu withoutGND, anzuwenden bei aut Person und Corporate Bodies sowie bei edt Corporate Bodies-->
+<xsl:template name="withoutSec">
+		<xsl:param name="shipUUID"/>	
+        <xsl:variable name="uuid" select="uuid:randomUUID()"/>	
+        
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$shipUUID"/>&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$uuid"/>&gt; .
 }};
-    </xsl:template>
+</xsl:template>
+
+<!--zweite Insert-Data-Anweisung zu withoutGND, anzuwenden bei edt Persons-->
+<xsl:template name="withoutEdtCor">
+		<xsl:param name="shipUUID"/>	
+        <xsl:variable name="uuid" select="uuid:randomUUID()"/>
+        
+INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$uuid" />&gt; &lt;http://vivoweb.org/ontology/core#researcherid&gt; "researcherid:<xsl:value-of select="$uuid" />" .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$uuid" />&gt; &lt;http://vivoweb.org/ontology/core#orcidid&gt; "orcidid:<xsl:value-of select="$uuid" />" .
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$uuid" />&gt; &lt;http://vivoweb.org/ontology/core#scopusid&gt; "scopusid:<xsl:value-of select="$uuid" />" .
+
+&lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$shipUUID" />&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$uuid" />&gt; .
+}};
+</xsl:template>
+
     
     <xsl:template match="/">
 
@@ -433,10 +468,16 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                     <!-- Persons without GND-ID -->
                     <xsl:for-each select="current()/mods:name[@type='personal' and not(@authority='gnd') and not(starts-with(@valueURI, 'http://d-nb.info/gnd/')) ]">
 
-  <xsl:call-template name="withoutGND"></xsl:call-template>
-  
-
-                    </xsl:for-each>
+				<xsl:call-template name="withoutGND">
+					<xsl:with-param name="persOrg" select=" 'Person' "/>
+					<xsl:with-param name="cerifURI" select=" 'Pers' "/>	
+					<xsl:with-param name="crmURI" select=" 'F10_Person' "	/>
+					<xsl:with-param name="rdaURI" select=" 'Person' " />	
+                    <xsl:with-param name="creationDate" select="$creationDate"/>                        					
+                    <xsl:with-param name="changeDate" select="$changeDate"/>
+                    <xsl:with-param name="shipUUID" select="$authorship-uuid"/>                    
+				</xsl:call-template>
+        </xsl:for-each>
                     
                     <!-- Corprate body without GND-ID -->
                     <xsl:for-each select="current()/mods:name[@type='corporate' and not(@authority='gnd') and not(starts-with(@valueURI, 'http://d-nb.info/gnd/')) ]">
@@ -457,7 +498,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$cb-uuid"/>/about&gt; &lt;http://creativecommons.org/ns#attributionURL&gt; &lt;http://www.ub.rub.de&gt; .
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$cb-uuid"/>/about&gt; &lt;http://creativecommons.org/ns#attributionName&gt; "Ruhr-Universit\u00E4t Bochum, University Library" .
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$cb-uuid"/>/about&gt; &lt;http://purl.org/dc/terms#created&gt; "<xsl:value-of select="$creationDate"/>" .
-                        <xsl:if test="$changeDate != ''">
+                        <xsl:if  test="$changeDate != ''">
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$cb-uuid"/>/about&gt; &lt;http://purl.org/dc/terms#modified&gt; "<xsl:value-of select="$changeDate"/>" .
                         </xsl:if>
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$cb-uuid"/>/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
@@ -505,49 +546,23 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                     <xsl:with-param name="changeDate" select="$changeDate"/>	
                     <xsl:with-param name="shipUUID" select="$editorship-uuid"/>                          
 				</xsl:call-template>                 
-INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>&gt; &lt;http://vivoweb.org/ontology/core#researcherid&gt; "researcherid:<xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>" .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>&gt; &lt;http://vivoweb.org/ontology/core#orcidid&gt; "orcidid:<xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>" .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>&gt; &lt;http://vivoweb.org/ontology/core#scopusid&gt; "scopusid:<xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>" .
 
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$editorship-uuid"/>&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>&gt; .
-}};
                     </xsl:for-each>
                     
                     <!-- Person without GND-ID -->
                     <xsl:for-each select="current()/mods:name[@type='personal' and @authority='gnd'and starts-with(@valueURI, 'http://d-nb.info/gnd/') ]">
                         <xsl:variable name="per-uuid" select="uuid:randomUUID()"/>
-INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://xmlns.com/foaf/0.1/Person&gt; .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.eurocris.org/ontologies/semcerif/1.3#cfPers&gt; .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://schema.org/Person&gt; .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://erlangen-crm.org/efrbroo/121016/F10_Person&gt; .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://rdaregistry.info/Elements/c/Person&gt; .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/ns/prov#Person&gt; .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/ns/prov#Person&gt; .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>&gt; &lt;http://xmlns.com/foaf/0.1/familyName&gt; "<xsl:value-of select="current()/mods:namePart[@type='family']"/>" .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>&gt; &lt;http://xmlns.com/foaf/0.1/givenName&gt; "<xsl:value-of select="current()/mods:namePart[@type='given']"/>" .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>&gt; &lt;http://xmlns.com/foaf/0.1/name&gt; "<xsl:value-of select="concat(current()/mods:namePart[@type='family'],', ',current()/mods:namePart[@type='given'])"/>" .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2007/05/powder-s#Document&gt; .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/ns/prov#Entity&gt; .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>/about&gt; &lt;http://www.w3.org/2007/05/powder-s#describedby&gt; &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>/about-meta&gt; .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>/about&gt; &lt;http://erlangen-crm.org/efrbroo/121016/P70_documents&gt; &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>&gt; .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>/about&gt; &lt;http://creativecommons.org/ns#licence&gt; &lt;http://creativecommons.org/publicdomain/zero/1.0/legalcode&gt; .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>/about&gt; &lt;http://creativecommons.org/ns#attributionURL&gt; &lt;http://www.ub.rub.de&gt; .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>/about&gt; &lt;http://creativecommons.org/ns#attributionName&gt; "Ruhr-Universit\u00E4t Bochum, University Library" .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>/about&gt; &lt;http://purl.org/dc/terms#created&gt; "<xsl:value-of select="$creationDate"/>" .
-                        <xsl:if test="$changeDate != ''">
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>/about&gt; &lt;http://purl.org/dc/terms#modified&gt; "<xsl:value-of select="$changeDate"/>" .
-                        </xsl:if>
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
 
-INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>&gt; &lt;http://vivoweb.org/ontology/core#researcherid&gt; "researcherid:<xsl:value-of select="$per-uuid"/>" .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>&gt; &lt;http://vivoweb.org/ontology/core#orcidid&gt; "orcidid:<xsl:value-of select="$per-uuid"/>" .
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>&gt; &lt;http://vivoweb.org/ontology/core#scopusid&gt; "scopusid:<xsl:value-of select="$per-uuid"/>" .
-
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$editorship-uuid"/>&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$per-uuid"/>&gt; .
-}};
+				<xsl:call-template name="withoutGND">
+					<xsl:with-param name="persOrg" select=" 'Person' "/>
+					<xsl:with-param name="cerifURI" select=" 'Pers' "/>	
+					<xsl:with-param name="crmURI" select=" 'F10_Person' "	/>
+					<xsl:with-param name="rdaURI" select=" 'Person' " />	
+                    <xsl:with-param name="creationDate" select="$creationDate"/>                        					
+                    <xsl:with-param name="changeDate" select="$changeDate"/>	
+                    <xsl:with-param name="shipUUID" select="$editorship-uuid"/>                          
+				</xsl:call-template>                        
+                        
                     </xsl:for-each>
                     <!-- Corporate body with GND-ID -->
                     <xsl:for-each select="current()/mods:name[@type='corporate' and @authority='gnd'and starts-with(@valueURI, 'http://d-nb.info/gnd/') ]">
@@ -560,9 +575,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 							<xsl:with-param name="changeDate" select="$changeDate"/>	
                            <xsl:with-param name="uuid" select="$editorship-uuid"/>      								
 					</xsl:call-template>                    
-INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$editorship-uuid"/>&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>&gt; .
-}};
+
                     </xsl:for-each>
                     <!-- Corporate body without GND-ID -->
                     <xsl:for-each select="current()/mods:name[@type='corporate' and @authority='gnd'and starts-with(@valueURI, 'http://d-nb.info/gnd/') ]">
@@ -589,9 +602,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         </xsl:if>
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$cb-uuid"/>/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
 }};
-INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
-&lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$editorship-uuid"/>&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$cb-uuid"/>&gt; .
-}};
+
                     </xsl:for-each>
                 </xsl:if>
                 <!-- Subjects -->
