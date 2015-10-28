@@ -49,7 +49,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 &lt;<xsl:value-of select="$collectionURI"/>&gt; &lt;http://schema.org/dataset&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; .
 }};
 
-                <xsl:if test="current()/mods:titleInfo/mods:title">
+                <xsl:if test="current()/mods:titleInfo/mods:title[not(@type)]">
                     <xsl:call-template name="title-uuid">
                         <xsl:with-param name="output" select="current()/mods:titleInfo/mods:title"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#title' "/>
@@ -62,13 +62,14 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                     <xsl:call-template name="title-uuid">
                         <xsl:with-param name="output"
                                         select="current()/mods:titleInfo[@type='abbreviated']/mods:title"/>
-                        <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#title' "/>
+                        <xsl:with-param name="uri" select=" 'http://purl.org/ontology/bibo/shortTitle' "/>
                         <xsl:with-param name="subTitle"
                                         select="current()/mods:titleInfo[@type='abbreviated']/mods:subTitle"/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
                     </xsl:call-template>
                 </xsl:if>
 
+                <!-- TODO eigenes Werk/Expression -->
                 <xsl:if test="current()/mods:titleInfo[@type='translated']/mods:title">
                     <xsl:call-template name="title-uuid">
                         <xsl:with-param name="output" select="current()/mods:titleInfo[@type='translated']/mods:title"/>
@@ -79,6 +80,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                     </xsl:call-template>
                 </xsl:if>
 
+                <!-- Work title -->
                 <xsl:if test="current()/mods:titleInfo[@type='uniform']/mods:title">
                     <xsl:call-template name="title-uuid">
                         <xsl:with-param name="output" select="current()/mods:titleInfo[@type='uniform']/mods:title"/>
@@ -99,6 +101,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                     </xsl:call-template>
                 </xsl:if>
 
+                <!-- TODO kommt aktuell in den Daten nicht vor
                 <xsl:if test="current()/mods:titleInfo[@type='enumerated']/mods:title">
                     <xsl:call-template name="title-uuid">
                         <xsl:with-param name="output" select="current()/mods:titleInfo[@type='enumerated']/mods:title"/>
@@ -108,6 +111,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
                     </xsl:call-template>
                 </xsl:if>
+                -->
 
                 <xsl:if test="current()/mods:originInfo/mods:dateIssued">
                     <xsl:call-template name="uuid">
@@ -525,6 +529,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                     </xsl:call-template>
                 </xsl:if>
 
+                <!-- TODO uri nicht definiert-->
                 <xsl:if test="current()/mods:note[@type='publication status']">
                     <xsl:call-template name="uuid">
                         <xsl:with-param name="output" select="current()/mods:note[@type='publication status']"/>
@@ -533,6 +538,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                     </xsl:call-template>
                 </xsl:if>
 
+                <!-- TODO uri nicht definiert-->
                 <xsl:if test="current()/mods:note[@displayLabel='Preis']">
                     <xsl:call-template name="uuid">
                         <xsl:with-param name="output" select="current()/mods:note[@displayLabel='Preis']"/>
@@ -541,6 +547,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                     </xsl:call-template>
                 </xsl:if>
 
+                <!-- TODO uri nicht definiert-->
                 <xsl:if test="current()/mods:note[@displayLabel='Titelzusaetze']">
                     <xsl:call-template name="uuid">
                         <xsl:with-param name="output" select="current()/mods:note[@displayLabel='Titelzusaetze']"/>
@@ -573,6 +580,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                     </xsl:call-template>
                 </xsl:if>
 
+                <!-- TODO dies hier war und ist ein Provisorium! -->
                 <xsl:if test="current()/mods:relatedItem[@type='host']">
                     <xsl:variable name="journal-uuid" select="uuid:randomUUID()"/>
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
