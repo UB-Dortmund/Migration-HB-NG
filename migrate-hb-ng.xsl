@@ -1,7 +1,6 @@
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:mods="http://www.loc.gov/mods/v3"
-                xmlns:uuid="java.util.UUID"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:dcterms="http://dublincore.org/documents/dcmi-terms"
                 exclude-result-prefixes="uuid">
@@ -177,7 +176,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                     </xsl:call-template>
                 </xsl:if>
 
-             <!--  Test Unterescheidung if 
+             <!--  Test Unterescheidung if
 
                     <xsl:if test="current()/mods:physicalDescription/mods:extent">
 						<xsl:variable name="valURI">
@@ -284,7 +283,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 
                 <xsl:if test="//mods:name/mods:role/mods:roleTerm = 'aut'">
 
-                <xsl:variable name="authorship-uuid" select="uuid:randomUUID()" />
+                <xsl:variable name="authorship-uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-authorship'"/></xsl:variable>
   
                     <xsl:call-template name="person">
                         <xsl:with-param name="vivoweb" select=" 'Authorship' "/>
@@ -370,7 +369,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 
                 <!--Herausgeber-->
                 <xsl:if test="//mods:name/mods:role/mods:roleTerm = 'edt'">
-                    <xsl:variable name="editorship-uuid" select="uuid:randomUUID()"/>
+                    <xsl:variable name="editorship-uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-editorship'"/></xsl:variable>
 
                     <xsl:call-template name="person">
                         <xsl:with-param name="vivoweb" select=" 'Editorship' "/>
@@ -626,7 +625,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
 
                 <!-- TODO dies hier war und ist ein Provisorium! -->
                 <xsl:if test="current()/mods:relatedItem[@type='host']">
-                    <xsl:variable name="journal-uuid" select="uuid:randomUUID()"/>
+                    <xsl:variable name="journal-uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0'"/></xsl:variable>
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://erlangen-crm.org/efrbroo/121016/F18_Serial_Work&gt; .
 &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://rdaregistry.info/Elements/c/Work&gt; .
@@ -652,7 +651,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>&gt; &lt;http://purl.org/dc/terms#hasPart&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; .
 }};
 
-                    <xsl:variable name="journal-title-uuid" select="uuid:randomUUID()"/>
+                    <xsl:variable name="journal-title-uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-title'"/></xsl:variable>
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$journal-title-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2000/01/rdf-schema#Resource&gt; .
 &lt;<xsl:value-of select="$baseuri" />const/<xsl:value-of select="$journal-title-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://erlangen-crm.org/120111/E35_Title&gt; .
@@ -669,7 +668,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 }};
 
                     <xsl:if test="current()/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='volume']/mods:number">
-                        <xsl:variable name="uuid" select="uuid:randomUUID()"/>
+                        <xsl:variable name="uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-volume'"/></xsl:variable>
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2000/01/rdf-schema#Resource&gt; .
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#value&gt; "<xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='volume']/mods:number"/>" .
@@ -679,7 +678,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 }};
                     </xsl:if>
                     <xsl:if test="current()/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='issue']/mods:number">
-                        <xsl:variable name="uuid" select="uuid:randomUUID()"/>
+                        <xsl:variable name="uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-issue'"/></xsl:variable>
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2000/01/rdf-schema#Resource&gt; .
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#value&gt; "<xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='issue']/mods:number"/>" .
@@ -689,7 +688,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 }};
                     </xsl:if>
                     <xsl:if test="current()/mods:relatedItem[@type='host']/mods:identifier[@type='issn']">
-                        <xsl:variable name="uuid" select="uuid:randomUUID()"/>
+                        <xsl:variable name="uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-issn'"/></xsl:variable>
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2000/01/rdf-schema#Resource&gt; .
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#value&gt; "[ISSN] <xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:identifier[@type='issn']"/>" .
@@ -699,7 +698,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 }};
                     </xsl:if>
                     <xsl:if test="current()/mods:relatedItem[@type='host']/mods:identifier[@type='isbn']">
-                        <xsl:variable name="uuid" select="uuid:randomUUID()"/>
+                        <xsl:variable name="uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-isbn'"/></xsl:variable>
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2000/01/rdf-schema#Resource&gt; .
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#value&gt; "[ISBN] <xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:identifier[@type='isbn']"/>" .

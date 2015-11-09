@@ -1,7 +1,6 @@
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:mods="http://www.loc.gov/mods/v3"
-                xmlns:uuid="java.util.UUID"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
                 xmlns:dcterms="http://dublincore.org/documents/dcmi-terms"
                 exclude-result-prefixes="uuid">
