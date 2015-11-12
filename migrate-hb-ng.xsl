@@ -54,6 +54,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#title' "/>
                         <xsl:with-param name="subTitle" select="current()/mods:titleInfo/mods:subTitle"/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:titleInfo/mods:title[@valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:titleInfo/mods:title/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                        
                     </xsl:call-template>
                 </xsl:if>
 
@@ -63,6 +68,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="uri" select=" 'http://purl.org/ontology/bibo/shortTitle' "/>
                         <xsl:with-param name="subTitle" select="current()/mods:titleInfo[@type='abbreviated']/mods:subTitle"/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:titleInfo[@type='abbreviated']/mods:title[@valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:titleInfo[@type='abbreviated']/mods:title/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                        
                     </xsl:call-template>
                 </xsl:if>
 
@@ -73,6 +83,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#title' "/>
                         <xsl:with-param name="subTitle" select="current()/mods:titleInfo[@type='translated']/mods:subTitle"/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:titleInfo[@type='translated']/mods:title[@valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:titleInfo[@type='translated']/mods:title/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                        
                     </xsl:call-template>
                 </xsl:if>
 
@@ -83,6 +98,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#title' "/>
                         <xsl:with-param name="subTitle" select="current()/mods:titleInfo[@type='uniform']/mods:subTitle"/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:titleInfo[@type='uniform']/mods:title[@valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:titleInfo[@type='uniform']/mods:title/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                        
                     </xsl:call-template>
                 </xsl:if>
 
@@ -91,7 +111,12 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="output" select="current()/mods:titleInfo[@type='alternative']/mods:title"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/alternative' "/>
                         <xsl:with-param name="subTitle" select="current()/mods:titleInfo[@type='alternative']/mods:subTitle"/>
-                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>                        
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>  
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:titleInfo[@type='alternative']/mods:title[@valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:titleInfo[@type='alternative']/mods:title/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                                                
                     </xsl:call-template>
                 </xsl:if>
 
@@ -112,6 +137,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="output" select="mods:originInfo/mods:dateIssued"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#issued' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:originInfo/mods:dateIssued[@valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:originInfo/mods:dateIssued[@type='alternative']/mods:title/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                        
                     </xsl:call-template>
                 </xsl:if>
 
@@ -120,6 +150,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="output" select="current()/mods:relatedItem[@type='host']/mods:part/mods:date"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#issued' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:relatedItem[@type='host']/mods:part/mods:date[@valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:part/mods:date/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                          
                     </xsl:call-template>
                 </xsl:if>
 
@@ -128,6 +163,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="output" select="current()/mods:language/mods:languageTerm"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#language' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:language/mods:languageTerm[@valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:language/mods:languageTerm/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                        
                     </xsl:call-template>
                 </xsl:if>
 
@@ -137,6 +177,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="identifierName" select=" 'DOI' "/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#identifier' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:identifier[@type='doi' and @valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:identifier[@type='doi']/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                             
                     </xsl:call-template>
                 </xsl:if>
 
@@ -146,6 +191,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="identifierName" select=" 'ISBN' "/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#identifier' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:identifier[@type='isbn' and @valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:identifier[@type='isbn']/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                        
                     </xsl:call-template>
                 </xsl:if>
 
@@ -155,6 +205,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="identifierName" select=" 'ISSN' "/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#identifier' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:identifier[@type='issn' and @valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:identifier[@type='issn']/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                        
                     </xsl:call-template>
                 </xsl:if>
 
@@ -164,6 +219,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="identifierName" select=" 'PM' "/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#identifier' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:identifier[@type='pm' and @valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:identifier[@type='pm']/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                        
                     </xsl:call-template>
                 </xsl:if>
 
@@ -173,27 +233,24 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="identifierName" select=" 'ISI' "/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#identifier' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:identifier[@type='isi' and @valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:identifier[@type='isi']/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                        
                     </xsl:call-template>
                 </xsl:if>
-
-             <!--  Test Unterscheidung if-->
 			
                     <xsl:if test="current()/mods:physicalDescription/mods:extent">
-					Test extent:
-						<xsl:variable name="valURI">					
-							<xsl:if test="current()/mods:physicalDescription/mods:extent[starts-with(@valueURI, 'http://hb2.ub.rub.de')]">
-								<xsl:value-of select="current()/mods:physicalDescription/mods:extent/@valueURI"/>
-							</xsl:if>
-						</xsl:variable>
-
-				<xsl:value-of select="$valURI"/>
                     <xsl:call-template name="uuid">
                         <xsl:with-param name="output" select="current()/mods:physicalDescription/mods:extent"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#extent' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
-
-        
-                        
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:physicalDescription/mods:extent[@valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:physicalDescription/mods:extent/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>
                     </xsl:call-template>
                 </xsl:if>
 
@@ -202,6 +259,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="output" select="current()/mods:physicalDescription/mods:internetMediaType"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/MediaType' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:physicalDescription/mods:internetMediaType[@valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:physicalDescription/mods:internetMediaType/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                        
                     </xsl:call-template>
                 </xsl:if>
 
@@ -210,6 +272,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="output" select="current()/mods:recordInfo/mods:recordCreationDate"/>
                         <xsl:with-param name="uri" select=" 'http://www.loc.gov/standards/mods/userguide/recordinfo.html#recordcreationdate' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:recordInfo/mods:recordCreationDate[@valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:recordInfo/mods:recordCreationDate/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                         
                     </xsl:call-template>
                 </xsl:if>
 
@@ -218,6 +285,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="output" select="current()/mods:recordInfo/mods:recordChangeDate"/>
                         <xsl:with-param name="uri" select=" 'http://www.loc.gov/standards/mods/userguide/recordinfo.html#recordchangedate' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:recordInfo/mods:recordChangeDate[@valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:recordInfo/mods:recordChangeDate/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                            
                     </xsl:call-template>
                 </xsl:if>
 
@@ -226,6 +298,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="output" select="current()/mods:originInfo/mods:place/mods:placeTerm[@type='text']"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/Location' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:originInfo/mods:place/mods:placeTerm[@type='text' and @valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:originInfo/mods:place/mods:placeTerm[@type='text']/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                          
                     </xsl:call-template>
                 </xsl:if>
 
@@ -234,6 +311,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="output" select="current()/mods:abstract"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/abstract' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:abstract[@valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:abstract/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                        
                     </xsl:call-template>
                 </xsl:if>
 
@@ -242,17 +324,29 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="output" select="current()/mods:abstract[@shareable='no']"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/abstract' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:abstract[@shareable='no' and @valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:abstract[@shareable='no']/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                          
                     </xsl:call-template>
                 </xsl:if>
 
-                <!-- Publisher -->
                 <xsl:for-each select="current()/mods:originInfo/mods:publisher">
 					   <xsl:variable name="type" select=" 'expression' "/>
 					   <xsl:variable name="position" select="position()"/>
                        <xsl:variable name="fieldname" select="name()"/>
                       <xsl:variable name="uuid">
-						   <xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/>
-            		  </xsl:variable> 
+						  <xsl:choose>
+									<xsl:when test="current()/mods:originInfo/mods:publisher[@valueURI and @authority='hbng']">
+										<xsl:value-of select="current()/mods:originInfo/mods:publisher/@valueURI"/>
+									</xsl:when>
+									<xsl:otherwise>
+										   <xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/>
+									</xsl:otherwise>
+            		  		</xsl:choose>
+            		  	</xsl:variable>
+            		  
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://xmlns.com/foaf/0.1/#Organization&gt; .
 &lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.eurocris.org/ontologies/semcerif/1.3#cfOrgUnit&gt; .
@@ -285,13 +379,18 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                 <xsl:if test="//mods:name/mods:role/mods:roleTerm = 'aut'">
 
                 <xsl:variable name="authorship-uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-authorship'"/></xsl:variable>
-  
+
                     <xsl:call-template name="person">
                         <xsl:with-param name="vivoweb" select=" 'Authorship' "/>
                         <xsl:with-param name="output" select="current()/mods:name/mods:role/mods:roleTerm"/> <!--Bei anderem Pfad Fehlermeldung-->
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
                         <xsl:with-param name="creationDate" select="$creationDate"/>
                         <xsl:with-param name="changeDate" select="$changeDate"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:name/mods:role/mods:roleTerm[@valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:name/mods:role/mods:roleTerm/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                          
                     </xsl:call-template>
 
                     <!-- Persons with GND-ID -->
@@ -320,13 +419,23 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                             <xsl:with-param name="creationDate" select="$creationDate"/>
                             <xsl:with-param name="changeDate" select="$changeDate"/>
                             <xsl:with-param name="position" select="position()"/>
-                            <xsl:with-param name="type" select=" 'authorship' "/>                              
+                            <xsl:with-param name="type" select=" 'authorship' "/> 
+							<xsl:with-param name="newURI">					
+								<xsl:if test="current()/mods:name[@type='personal' and @valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:name[@type='personal']/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                                                         
                         </xsl:call-template>
                         <xsl:call-template name="withoutSec">
 							<xsl:with-param name="output" select="'name'"/>
 							<xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>                            
                             <xsl:with-param name="position" select="position()"/>  
-                            <xsl:with-param name="type" select=" 'authorship' "/>                                                    
+                            <xsl:with-param name="type" select=" 'authorship' "/>                   
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:name[@type='personal' and @valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:name[@type='personal']/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                                                              
                         </xsl:call-template>
                     </xsl:for-each>
 
@@ -343,14 +452,24 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                             <xsl:with-param name="creationDate" select="$creationDate"/>
                             <xsl:with-param name="changeDate" select="$changeDate"/>
                             <xsl:with-param name="position" select="position()"/>  
-                            <xsl:with-param name="type" select=" 'authorship' "/>                             
+                            <xsl:with-param name="type" select=" 'authorship' "/>             
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:name[@type='corporate' and @valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:name[@type='corporate']/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                                             
                         </xsl:call-template>
                         <xsl:call-template name="withoutSec">
                             <xsl:with-param name="shipUUID"/>
 							<xsl:with-param name="output" select="'name'"/>                            
 							<xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>   
                             <xsl:with-param name="position" select="position()"/>  
-                            <xsl:with-param name="type" select=" 'authorship' "/>                                                     
+                            <xsl:with-param name="type" select=" 'authorship' "/> 
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:name[@type='corporate' and @valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:name[@type='corporate']/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                                                                                 
                         </xsl:call-template>
                     </xsl:for-each>
 
@@ -378,6 +497,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
                         <xsl:with-param name="creationDate" select="$creationDate"/>
                         <xsl:with-param name="changeDate" select="$changeDate"/>
+						<xsl:with-param name="newURI">					
+							<xsl:if test="current()/mods:name/mods:role/mods:roleTerm[@valueURI and @authority='hbng']">
+								<xsl:value-of select="current()/mods:name/mods:role/mods:roleTerm/@valueURI"/>
+							</xsl:if>
+						</xsl:with-param>                          
                     </xsl:call-template>
 
                     <!-- Person with GND-ID -->
@@ -405,13 +529,23 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                             <xsl:with-param name="creationDate" select="$creationDate"/>
                             <xsl:with-param name="changeDate" select="$changeDate"/>
                             <xsl:with-param name="position" select="position()"/>  
-                            <xsl:with-param name="type" select=" 'editorship' "/>                             
+                            <xsl:with-param name="type" select=" 'editorship' "/> 
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:name[@type='personal' and @valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:name[@type='personal']/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                                                           
                         </xsl:call-template>
                         <xsl:call-template name="withoutEdtCor">
 							<xsl:with-param name="output" select="'name'"/> 
 							<xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>   
                             <xsl:with-param name="position" select="position()"/>  
                             <xsl:with-param name="type" select=" 'editorship' "/> 
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:name[@type='personal' and @valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:name[@type='personal']/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                               
                         </xsl:call-template>
                     </xsl:for-each>
 
@@ -440,13 +574,23 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                             <xsl:with-param name="creationDate" select="$creationDate"/>
                             <xsl:with-param name="changeDate" select="$changeDate"/>
                             <xsl:with-param name="position" select="position()"/>  
-                            <xsl:with-param name="type" select=" 'editorship' "/>                            
+                            <xsl:with-param name="type" select=" 'editorship' "/>            
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:name[@type='corporate' and @valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:name[@type='corporate']/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                                             
                         </xsl:call-template>
                         <xsl:call-template name="withoutSec">
 							<xsl:with-param name="output" select="'name'"/> 
 							<xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>   
                             <xsl:with-param name="position" select="position()"/>  
                             <xsl:with-param name="type" select=" 'editorship' "/>                            
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:name[@type='corporate' and @valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:name[@type='corporate']/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                             
                         </xsl:call-template>
                     </xsl:for-each>
                 </xsl:if>
@@ -457,8 +601,15 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 					   <xsl:variable name="position" select="position()"/>
                        <xsl:variable name="fieldname" select="name()"/>
                       <xsl:variable name="uuid">
-						   <xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/>
-            		  </xsl:variable> 
+						  <xsl:choose>
+									<xsl:when test="current()/mods:subject[@valueURI and @authority='hbng']">
+										<xsl:value-of select="current()/mods:subject/@valueURI"/>
+									</xsl:when>
+									<xsl:otherwise>
+										   <xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/>
+									</xsl:otherwise>
+            		  		</xsl:choose>
+            		  	</xsl:variable>
 
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2004/02/skos/core#Concept&gt; .
@@ -495,7 +646,12 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                         <xsl:with-param name="output" select="current()/mods:subject[@authority='mesh']/mods:topic"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/MESH' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
-					    <xsl:with-param name="position" select="position()"/>                        
+					    <xsl:with-param name="position" select="position()"/>   
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:subject[@authority='mesh']/mods:topic[@valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:subject[@authority='mesh']/mods:topic/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param> 					                         
                     </xsl:call-template>
                 </xsl:if>
 
@@ -505,6 +661,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/subject' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
 					    <xsl:with-param name="position" select="position()"/>                        
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:subject[@authority='thesoz']/mods:topic[@valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:subject[@authority='thesoz']/mods:topic/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param> 						    
                     </xsl:call-template>
                 </xsl:if>
 
@@ -513,7 +674,12 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                         <xsl:with-param name="output" select="current()/mods:subject[@authority='stw']/mods:topic"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/subject' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
-					    <xsl:with-param name="position" select="position()"/>                          
+					    <xsl:with-param name="position" select="position()"/>                  
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:subject[@authority='stw']/mods:topic[@valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:subject[@authority='stw']/mods:topic/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param> 						            
                     </xsl:call-template>
                 </xsl:if>
 
@@ -522,7 +688,12 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                         <xsl:with-param name="output" select="current()/mods:subject[@authority='lcsh']/mods:topic"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/LCSH' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
-					    <xsl:with-param name="position" select="position()"/>                          
+					    <xsl:with-param name="position" select="position()"/>    
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:subject[@authority='lcsh']/mods:topic[@valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:subject[@authority='lcsh']/mods:topic/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param> 						                          
                     </xsl:call-template>
                 </xsl:if>
 
@@ -531,6 +702,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                         <xsl:with-param name="output" select="current()/mods:tableOfContents/@xlink:href"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/tableOfContents' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:tableOfContents[@xlink:href and @valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:tableOfContents[@xlink:href]/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param> 	                        
                     </xsl:call-template>
                 </xsl:if>
 
@@ -539,6 +715,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                         <xsl:with-param name="output" select="current()/mods:typeOfResource"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/type' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:typeOfResource[@valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:typeOfResource/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                         
                     </xsl:call-template>
                 </xsl:if>
 
@@ -547,6 +728,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                         <xsl:with-param name="output" select="current()/mods:accessCondition[@type='use and reproduction']"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/accessRights' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:accessCondition[@type='use and reproduction' and @valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:accessCondition[@type='use and reproduction']/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                            
                     </xsl:call-template>
                 </xsl:if>
 
@@ -555,6 +741,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                         <xsl:with-param name="output" select="current()/mods:accessCondition[@type='restriction on access']"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/accessRights' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+						<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:accessCondition[@type='restriction on access' and @valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:accessCondition[@type='restriction on access']/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                        
                     </xsl:call-template>
                 </xsl:if>
 
@@ -562,7 +753,12 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                     <xsl:call-template name="uuid">
                         <xsl:with-param name="output" select="current()/mods:note"/>
                         <xsl:with-param name="uri" select="'http://www.loc.gov/standards/mods/userguide/note.html' "/>
-                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>                     
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>      
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:note[@valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:note/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                                          
                     </xsl:call-template>
                 </xsl:if>
 
@@ -571,7 +767,12 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                     <xsl:call-template name="uuid">
                         <xsl:with-param name="output" select="current()/mods:note[@type='publication status']"/>
                         <xsl:with-param name="uri" select=" 'http://www.loc.gov/standards/mods/userguide/note.html' "/>
-                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>                       
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>       
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:note[@type='publication status' and @valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:note[@type='publication status']/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                                            
                     </xsl:call-template>
                 </xsl:if>
 
@@ -580,7 +781,12 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                     <xsl:call-template name="uuid">
                         <xsl:with-param name="output" select="current()/mods:note[@displayLabel='Preis']"/>
                         <xsl:with-param name="uri" select=" 'http://www.loc.gov/standards/mods/userguide/note.html' "/>
-                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>                   
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>       
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:note[@displayLabel='Preis' and @valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:note[@displayLabel='Preis']/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                                           
                     </xsl:call-template>
                 </xsl:if>
 
@@ -589,7 +795,12 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                     <xsl:call-template name="uuid">
                         <xsl:with-param name="output" select="current()/mods:note[@displayLabel='Titelzusaetze']"/>
                         <xsl:with-param name="uri" select=" 'http://www.loc.gov/standards/mods/userguide/note.html' "/>
-                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>                  
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>        
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:note[@displayLabel='Titelzusaetze' and @valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:note[@displayLabel='Titelzusaetze']/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                                   
                     </xsl:call-template>
                 </xsl:if>
 
@@ -597,7 +808,12 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                     <xsl:call-template name="uuid">
                         <xsl:with-param name="output" select="current()/mods:location/mods:physicalLocation"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/Location' "/>
-                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>                       
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>     
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:location/mods:physicalLocation[@valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:location/mods:physicalLocation/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                                           
                     </xsl:call-template>
                 </xsl:if>
 
@@ -605,7 +821,12 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                     <xsl:call-template name="uuid">
                         <xsl:with-param name="output" select="current()/mods:location/mods:shelfLocator"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/Location' "/>
-                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>                       
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>     
+							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:location/mods:shelfLocator[@valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:location/mods:shelfLocator/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                                           
                     </xsl:call-template>
                 </xsl:if>
 
@@ -613,7 +834,12 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                     <xsl:call-template name="uuid">
                         <xsl:with-param name="output" select="current()/mods:location/mods:url"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/Location' "/>
-                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>                       
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>   
+                        							<xsl:with-param name="newURI">								
+								<xsl:if test="current()/mods:location/mods:url[@valueURI and @authority='hbng']">
+									<xsl:value-of select="current()/mods:location/mods:url/@valueURI"/>
+								</xsl:if>
+							</xsl:with-param>                     
                     </xsl:call-template>
                 </xsl:if>
 

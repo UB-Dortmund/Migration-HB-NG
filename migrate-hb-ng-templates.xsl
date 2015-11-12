@@ -34,11 +34,17 @@
         <xsl:param name="recordIdentifier"/>
         <xsl:param name="type" select=" 'expression' "/>
         <xsl:param name="position" select=" '0' "/>
-        <xsl:variable name="fieldname" select="name($output)"/>
+        <xsl:param name="newURI"/>
+		<xsl:variable name="fieldname" select="name($output)"/> 	 
 		<xsl:variable name="uuid">
-		   <xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/>
+			<xsl:choose>
+			   <!--Wenn bei newURI nichts übergeben wird (leere Zeichenkette), wird valueURI erzeugt-->
+				<xsl:when test="$newURI=''"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/></xsl:when>
+				<xsl:otherwise><xsl:value-of select="$newURI"/></xsl:otherwise>
+			</xsl:choose>
 		</xsl:variable> 
-		   	   
+		
+  
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2000/01/rdf-schema#Resource&gt; .
 &lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#value&gt; <xsl:choose>
@@ -59,10 +65,14 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
         <xsl:param name="recordIdentifier"/>
 	    <xsl:param name="type" select=" 'expression' "/>
         <xsl:param name="position" select=" '0' "/>
-        <xsl:variable name="fieldname" select="name($output)"/>
+        <xsl:param name="newURI"/>
+		<xsl:variable name="fieldname" select="name($output)"/> 	 
 		<xsl:variable name="uuid">
-		   <xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/>
-		</xsl:variable>
+			<xsl:choose>
+				<xsl:when test="$newURI=''"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/></xsl:when>
+				<xsl:otherwise><xsl:value-of select="$newURI"/></xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable> 
 
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2000/01/rdf-schema#Resource&gt; .
@@ -81,9 +91,13 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 		<xsl:param name="recordIdentifier"/>
         <xsl:param name="type" select=" 'expression' "/>
         <xsl:param name="position" select=" '0' "/>
-        <xsl:variable name="fieldname" select="name($output)"/>
+        <xsl:param name="newURI"/>
+		<xsl:variable name="fieldname" select="name($output)"/> 	 
 		<xsl:variable name="uuid">
-		   <xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/>
+			<xsl:choose>
+				<xsl:when test="$newURI=''"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/></xsl:when>
+				<xsl:otherwise><xsl:value-of select="$newURI"/></xsl:otherwise>
+			</xsl:choose>
 		</xsl:variable> 
 
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
@@ -103,9 +117,13 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
         <xsl:param name="recordIdentifier"/>
         <xsl:param name="type" select=" 'expression' "/>
         <xsl:param name="position" select=" '0' "/>
-        <xsl:variable name="fieldname" select="name($output)"/>
+        <xsl:param name="newURI"/>
+		<xsl:variable name="fieldname" select="name($output)"/> 	 
 		<xsl:variable name="uuid">
-		   <xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/>
+			<xsl:choose>
+				<xsl:when test="$newURI=''"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/></xsl:when>
+				<xsl:otherwise><xsl:value-of select="$newURI"/></xsl:otherwise>
+			</xsl:choose>
 		</xsl:variable> 
 
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
@@ -128,9 +146,13 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
         <xsl:param name="recordIdentifier"/>
         <xsl:param name="type" select=" 'expression' "/>
         <xsl:param name="position" select=" '0' "/>
-        <xsl:variable name="fieldname" select="name($output)"/>
+        <xsl:param name="newURI"/>
+		<xsl:variable name="fieldname" select="name($output)"/> 	 
 		<xsl:variable name="uuid">
-		   <xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/>
+			<xsl:choose>
+				<xsl:when test="$newURI=''"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/></xsl:when>
+				<xsl:otherwise><xsl:value-of select="$newURI"/></xsl:otherwise>
+			</xsl:choose>
 		</xsl:variable> 
 
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
@@ -220,10 +242,14 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
         <xsl:param name="recordIdentifier"/>
         <xsl:param name="type" select=" 'expression' "/>
         <xsl:param name="position" select=" '0' "/>
-        <xsl:variable name="fieldname" select="$output"/>
-         <xsl:variable name="uuid">
-		   <xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/>
-		   </xsl:variable>         
+        <xsl:param name="newURI"/>
+		<xsl:variable name="fieldname" select="$output"/> 	 
+		<xsl:variable name="uuid">
+			<xsl:choose>
+				<xsl:when test="$newURI=''"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/></xsl:when>
+				<xsl:otherwise><xsl:value-of select="$newURI"/></xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>          
 
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://xmlns.com/foaf/0.1/<xsl:value-of select="$persOrg"/>&gt; .
@@ -259,11 +285,14 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
         <xsl:param name="recordIdentifier"/>
         <xsl:param name="type" select=" 'expression' "/>
         <xsl:param name="position" select=" '0' "/>
-        <xsl:variable name="fieldname" select="$output"/>
-			
-         <xsl:variable name="uuid">
-		   <xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/><xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/>
-		  </xsl:variable> 
+        <xsl:param name="newURI"/>
+		<xsl:variable name="fieldname" select="$output"/> 	 
+		<xsl:variable name="uuid">
+			<xsl:choose>
+				<xsl:when test="$newURI=''"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/></xsl:when>
+				<xsl:otherwise><xsl:value-of select="$newURI"/></xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable> 
 		   
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;<xsl:value-of select="$uuid"/>&gt; .
@@ -277,10 +306,14 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
         <xsl:param name="type" select=" 'expression' "/>
         <xsl:param name="position" select=" '0' "/>
         <xsl:param name="shipUUID"/>
-        <xsl:variable name="fieldname" select="$output"/>
-         <xsl:variable name="uuid">
-		   <xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/><xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/>
-		   </xsl:variable> 
+        <xsl:param name="newURI"/>
+		<xsl:variable name="fieldname" select="$output"/> 	 
+		<xsl:variable name="uuid">
+			<xsl:choose>
+				<xsl:when test="$newURI=''"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/></xsl:when>
+				<xsl:otherwise><xsl:value-of select="$newURI"/></xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable> 
         
 
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
