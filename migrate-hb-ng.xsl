@@ -139,7 +139,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
 						<xsl:with-param name="newURI">					
 							<xsl:if test="current()/mods:originInfo/mods:dateIssued[@valueURI and @authority='hbng']">
-								<xsl:value-of select="current()/mods:originInfo/mods:dateIssued[@type='alternative']/mods:title/@valueURI"/>
+								<xsl:value-of select="current()/mods:originInfo/mods:dateIssued/@valueURI"/>
 							</xsl:if>
 						</xsl:with-param>                        
                     </xsl:call-template>
@@ -338,14 +338,14 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                        <xsl:variable name="fieldname" select="name()"/>
                       <xsl:variable name="uuid">
 						  <xsl:choose>
-									<xsl:when test="current()/mods:originInfo/mods:publisher[@valueURI and @authority='hbng']">
-										<xsl:value-of select="current()/mods:originInfo/mods:publisher/@valueURI"/>
+									<xsl:when test="@valueURI and @authority='hbng'">
+										<xsl:value-of select="@valueURI"/>
 									</xsl:when>
 									<xsl:otherwise>
 										   <xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/>
 									</xsl:otherwise>
             		  		</xsl:choose>
-            		  	</xsl:variable>
+            		  </xsl:variable>
             		  
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://xmlns.com/foaf/0.1/#Organization&gt; .
@@ -421,8 +421,8 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                             <xsl:with-param name="position" select="position()"/>
                             <xsl:with-param name="type" select=" 'authorship' "/> 
 							<xsl:with-param name="newURI">					
-								<xsl:if test="current()/mods:name[@type='personal' and @valueURI and @authority='hbng']">
-									<xsl:value-of select="current()/mods:name[@type='personal']/@valueURI"/>
+								<xsl:if test="@valueURI and @authority='hbng'">
+									<xsl:value-of select="@valueURI"/>
 								</xsl:if>
 							</xsl:with-param>                                                         
                         </xsl:call-template>
@@ -432,8 +432,8 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                             <xsl:with-param name="position" select="position()"/>  
                             <xsl:with-param name="type" select=" 'authorship' "/>                   
 							<xsl:with-param name="newURI">								
-								<xsl:if test="current()/mods:name[@type='personal' and @valueURI and @authority='hbng']">
-									<xsl:value-of select="current()/mods:name[@type='personal']/@valueURI"/>
+								<xsl:if test="@valueURI and @authority='hbng'">
+									<xsl:value-of select="@valueURI"/>
 								</xsl:if>
 							</xsl:with-param>                                                              
                         </xsl:call-template>
@@ -454,8 +454,8 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                             <xsl:with-param name="position" select="position()"/>  
                             <xsl:with-param name="type" select=" 'authorship' "/>             
 							<xsl:with-param name="newURI">								
-								<xsl:if test="current()/mods:name[@type='corporate' and @valueURI and @authority='hbng']">
-									<xsl:value-of select="current()/mods:name[@type='corporate']/@valueURI"/>
+								<xsl:if test="@valueURI and @authority='hbng'">
+									<xsl:value-of select="@valueURI"/>
 								</xsl:if>
 							</xsl:with-param>                                             
                         </xsl:call-template>
@@ -466,8 +466,8 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                             <xsl:with-param name="position" select="position()"/>  
                             <xsl:with-param name="type" select=" 'authorship' "/> 
 							<xsl:with-param name="newURI">								
-								<xsl:if test="current()/mods:name[@type='corporate' and @valueURI and @authority='hbng']">
-									<xsl:value-of select="current()/mods:name[@type='corporate']/@valueURI"/>
+								<xsl:if test="@valueURI and @authority='hbng'">
+									<xsl:value-of select="@valueURI"/>
 								</xsl:if>
 							</xsl:with-param>                                                                                 
                         </xsl:call-template>
@@ -531,8 +531,8 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                             <xsl:with-param name="position" select="position()"/>  
                             <xsl:with-param name="type" select=" 'editorship' "/> 
 							<xsl:with-param name="newURI">								
-								<xsl:if test="current()/mods:name[@type='personal' and @valueURI and @authority='hbng']">
-									<xsl:value-of select="current()/mods:name[@type='personal']/@valueURI"/>
+								<xsl:if test="@valueURI and @authority='hbng'">
+									<xsl:value-of select="@valueURI"/>
 								</xsl:if>
 							</xsl:with-param>                                                           
                         </xsl:call-template>
@@ -542,8 +542,8 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                             <xsl:with-param name="position" select="position()"/>  
                             <xsl:with-param name="type" select=" 'editorship' "/> 
 							<xsl:with-param name="newURI">								
-								<xsl:if test="current()/mods:name[@type='personal' and @valueURI and @authority='hbng']">
-									<xsl:value-of select="current()/mods:name[@type='personal']/@valueURI"/>
+								<xsl:if test="@valueURI and @authority='hbng'">
+									<xsl:value-of select="@valueURI"/>
 								</xsl:if>
 							</xsl:with-param>                               
                         </xsl:call-template>
@@ -576,8 +576,8 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                             <xsl:with-param name="position" select="position()"/>  
                             <xsl:with-param name="type" select=" 'editorship' "/>            
 							<xsl:with-param name="newURI">								
-								<xsl:if test="current()/mods:name[@type='corporate' and @valueURI and @authority='hbng']">
-									<xsl:value-of select="current()/mods:name[@type='corporate']/@valueURI"/>
+								<xsl:if test="@valueURI and @authority='hbng'">
+									<xsl:value-of select="@valueURI"/>
 								</xsl:if>
 							</xsl:with-param>                                             
                         </xsl:call-template>
@@ -587,8 +587,8 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                             <xsl:with-param name="position" select="position()"/>  
                             <xsl:with-param name="type" select=" 'editorship' "/>                            
 							<xsl:with-param name="newURI">								
-								<xsl:if test="current()/mods:name[@type='corporate' and @valueURI and @authority='hbng']">
-									<xsl:value-of select="current()/mods:name[@type='corporate']/@valueURI"/>
+								<xsl:if test="@valueURI and @authority='hbng'">
+									<xsl:value-of select="@valueURI"/>
 								</xsl:if>
 							</xsl:with-param>                             
                         </xsl:call-template>
@@ -596,21 +596,21 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                 </xsl:if>
 
                 <!-- Subjects -->
-                <xsl:for-each select="current()/mods:subject[not(@authority)]">
+                <xsl:for-each select="current()/mods:subject">
 					   <xsl:variable name="type" select=" 'expression' "/>
 					   <xsl:variable name="position" select="position()"/>
                        <xsl:variable name="fieldname" select="name()"/>
                       <xsl:variable name="uuid">
 						  <xsl:choose>
-									<xsl:when test="current()/mods:subject[@valueURI and @authority='hbng']">
-										<xsl:value-of select="current()/mods:subject/@valueURI"/>
+									<xsl:when test="@valueURI and @authority='hbng'">
+										<xsl:value-of select="@valueURI"/>
 									</xsl:when>
 									<xsl:otherwise>
 										   <xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/>
 									</xsl:otherwise>
             		  		</xsl:choose>
             		  	</xsl:variable>
-
+Test subjects
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2004/02/skos/core#Concept&gt; .
 &lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/2004/02/skos/core#prefLabel&gt; "<xsl:value-of select="current()/mods:topic"/>" .
