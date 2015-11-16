@@ -132,6 +132,14 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                 </xsl:if>
                 -->
 
+				<xsl:if test="current()/mods:genre[@authority='local']">
+					<xsl:call-template name="uuid">
+						<xsl:with-param name="output" select="current()/mods:genre[@authority='local']"/>
+						<xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/type' "/>
+						<xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+					</xsl:call-template>
+				</xsl:if>	
+               
                 <xsl:if test="current()/mods:originInfo/mods:dateIssued">
                     <xsl:call-template name="uuid">
                         <xsl:with-param name="output" select="mods:originInfo/mods:dateIssued"/>
@@ -162,12 +170,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                     <xsl:call-template name="uuid">
                         <xsl:with-param name="output" select="current()/mods:language/mods:languageTerm"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#language' "/>
-                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
-						<xsl:with-param name="newURI">					
-							<xsl:if test="current()/mods:language/mods:languageTerm[@valueURI and @authority='hbng']">
-								<xsl:value-of select="current()/mods:language/mods:languageTerm/@valueURI"/>
-							</xsl:if>
-						</xsl:with-param>                        
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>                        
                     </xsl:call-template>
                 </xsl:if>
 
@@ -596,7 +599,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                 </xsl:if>
 
                 <!-- Subjects -->
-                <xsl:for-each select="current()/mods:subject">
+                <xsl:for-each select="current()/mods:subject[not(@authority!='hbng')]">
 					   <xsl:variable name="type" select=" 'expression' "/>
 					   <xsl:variable name="position" select="position()"/>
                        <xsl:variable name="fieldname" select="name()"/>
@@ -610,7 +613,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 									</xsl:otherwise>
             		  		</xsl:choose>
             		  	</xsl:variable>
-Test subjects
+
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2004/02/skos/core#Concept&gt; .
 &lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/2004/02/skos/core#prefLabel&gt; "<xsl:value-of select="current()/mods:topic"/>" .
@@ -641,59 +644,39 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
 }};
                 </xsl:for-each>
 
-                <xsl:if test="current()/mods:subject[@authority='mesh']/mods:topic">
+                <xsl:if test="current()/mods:subject[@authority='mesh']">
                     <xsl:call-template name="uuid">
-                        <xsl:with-param name="output" select="current()/mods:subject[@authority='mesh']/mods:topic"/>
+                        <xsl:with-param name="output" select="current()/mods:subject[@authority='mesh']"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/MESH' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
-					    <xsl:with-param name="position" select="position()"/>   
-							<xsl:with-param name="newURI">								
-								<xsl:if test="current()/mods:subject[@authority='mesh']/mods:topic[@valueURI and @authority='hbng']">
-									<xsl:value-of select="current()/mods:subject[@authority='mesh']/mods:topic/@valueURI"/>
-								</xsl:if>
-							</xsl:with-param> 					                         
+					    <xsl:with-param name="position" select="position()"/>   				                         
                     </xsl:call-template>
                 </xsl:if>
 
-                <xsl:if test="current()/mods:subject[@authority='thesoz']/mods:topic">
+                <xsl:if test="current()/mods:subject[@authority='thesoz']">
                     <xsl:call-template name="uuid">
-                        <xsl:with-param name="output" select="current()/mods:subject[@authority='thesoz']/mods:topic"/>
+                        <xsl:with-param name="output" select="current()/mods:subject[@authority='thesoz']"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/subject' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
-					    <xsl:with-param name="position" select="position()"/>                        
-							<xsl:with-param name="newURI">								
-								<xsl:if test="current()/mods:subject[@authority='thesoz']/mods:topic[@valueURI and @authority='hbng']">
-									<xsl:value-of select="current()/mods:subject[@authority='thesoz']/mods:topic/@valueURI"/>
-								</xsl:if>
-							</xsl:with-param> 						    
+					    <xsl:with-param name="position" select="position()"/>                        					    
                     </xsl:call-template>
                 </xsl:if>
 
-                <xsl:if test="current()/mods:subject[@authority='stw']/mods:topic">
+                <xsl:if test="current()/mods:subject[@authority='stw']">
                     <xsl:call-template name="uuid">
-                        <xsl:with-param name="output" select="current()/mods:subject[@authority='stw']/mods:topic"/>
+                        <xsl:with-param name="output" select="current()/mods:subject[@authority='stw']"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/subject' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
-					    <xsl:with-param name="position" select="position()"/>                  
-							<xsl:with-param name="newURI">								
-								<xsl:if test="current()/mods:subject[@authority='stw']/mods:topic[@valueURI and @authority='hbng']">
-									<xsl:value-of select="current()/mods:subject[@authority='stw']/mods:topic/@valueURI"/>
-								</xsl:if>
-							</xsl:with-param> 						            
+					    <xsl:with-param name="position" select="position()"/>                  						            
                     </xsl:call-template>
                 </xsl:if>
 
-                <xsl:if test="current()/mods:subject[@authority='lcsh']/mods:topic">
+                <xsl:if test="current()/mods:subject[@authority='lcsh']">
                     <xsl:call-template name="uuid">
-                        <xsl:with-param name="output" select="current()/mods:subject[@authority='lcsh']/mods:topic"/>
+                        <xsl:with-param name="output" select="current()/mods:subject[@authority='lcsh']"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/LCSH' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
-					    <xsl:with-param name="position" select="position()"/>    
-							<xsl:with-param name="newURI">								
-								<xsl:if test="current()/mods:subject[@authority='lcsh']/mods:topic[@valueURI and @authority='hbng']">
-									<xsl:value-of select="current()/mods:subject[@authority='lcsh']/mods:topic/@valueURI"/>
-								</xsl:if>
-							</xsl:with-param> 						                          
+					    <xsl:with-param name="position" select="position()"/>     						                          
                     </xsl:call-template>
                 </xsl:if>
 
