@@ -2,8 +2,7 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:mods="http://www.loc.gov/mods/v3"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
-                xmlns:dcterms="http://dublincore.org/documents/dcmi-terms"
-                exclude-result-prefixes="uuid">
+                xmlns:dcterms="http://dublincore.org/documents/dcmi-terms">
   
 
 <xsl:template name="string-replace-all">
@@ -32,7 +31,7 @@
         <xsl:param name="identifierName"/>
         <!--Wenn es sich um einen Identifier handelt, wird dieser in eckigen Klammern vor die Ausgabe gesetzt-->
         <xsl:param name="recordIdentifier"/>
-        <xsl:param name="type" select=" 'expression' "/>
+        <xsl:param name="type" select=" 'manifestation' "/>
         <xsl:param name="position" select=" '0' "/>
         <xsl:param name="newURI"/>
 		<xsl:variable name="fieldname" select="name($output)"/> 	 
@@ -63,7 +62,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
         <xsl:param name="uri"/>
         <xsl:param name="subTitle"/>
         <xsl:param name="recordIdentifier"/>
-	    <xsl:param name="type" select=" 'expression' "/>
+	    <xsl:param name="type" select=" 'manifestation' "/>
         <xsl:param name="position" select=" '0' "/>
         <xsl:param name="newURI"/>
 		<xsl:variable name="fieldname" select="name($output)"/> 	 
@@ -89,7 +88,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
         <xsl:param name="output"/>
         <xsl:param name="uri"/>
 		<xsl:param name="recordIdentifier"/>
-        <xsl:param name="type" select=" 'expression' "/>
+        <xsl:param name="type" select=" 'manifestation' "/>
         <xsl:param name="position" select=" '0' "/>
         <xsl:param name="newURI"/>
 		<xsl:variable name="fieldname" select="name($output)"/> 	 
@@ -115,7 +114,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
         <xsl:param name="output"/>
         <xsl:param name="uri"/>
         <xsl:param name="recordIdentifier"/>
-        <xsl:param name="type" select=" 'expression' "/>
+        <xsl:param name="type" select=" 'manifestation' "/>
         <xsl:param name="position" select=" '0' "/>
         <xsl:param name="newURI"/>
 		<xsl:variable name="fieldname" select="name($output)"/> 	 
@@ -144,7 +143,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
         <xsl:param name="creationDate"/>
         <xsl:param name="changeDate"/>
         <xsl:param name="recordIdentifier"/>
-        <xsl:param name="type" select=" 'expression' "/>
+        <xsl:param name="type" select=" 'manifestation' "/>
         <xsl:param name="position" select=" '0' "/>
         <xsl:param name="newURI"/>
 		<xsl:variable name="fieldname" select="name($output)"/> 	 
@@ -240,7 +239,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
         <xsl:param name="changeDate"/>
         <xsl:param name="output"/>        
         <xsl:param name="recordIdentifier"/>
-        <xsl:param name="type" select=" 'expression' "/>
+        <xsl:param name="type" select=" 'manifestation' "/>
         <xsl:param name="position" select=" '0' "/>
         <xsl:param name="newURI"/>
 		<xsl:variable name="fieldname" select="$output"/> 	 
@@ -283,7 +282,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
     <xsl:template name="withoutSec">
         <xsl:param name="output"/>
         <xsl:param name="recordIdentifier"/>
-        <xsl:param name="type" select=" 'expression' "/>
+        <xsl:param name="type" select=" 'manifestation' "/>
         <xsl:param name="position" select=" '0' "/>
         <xsl:param name="newURI"/>
 		<xsl:variable name="fieldname" select="$output"/> 	 
@@ -303,7 +302,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
     <xsl:template name="withoutEdtCor">
         <xsl:param name="output"/>
         <xsl:param name="recordIdentifier"/>
-        <xsl:param name="type" select=" 'expression' "/>
+        <xsl:param name="type" select=" 'manifestation' "/>
         <xsl:param name="position" select=" '0' "/>
         <xsl:param name="shipUUID"/>
         <xsl:param name="newURI"/>

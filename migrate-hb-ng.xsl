@@ -2,8 +2,7 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:mods="http://www.loc.gov/mods/v3"
                 xmlns:xlink="http://www.w3.org/1999/xlink"
-                xmlns:dcterms="http://dublincore.org/documents/dcmi-terms"
-                exclude-result-prefixes="uuid">
+                xmlns:dcterms="http://dublincore.org/documents/dcmi-terms">
 
     <xsl:include href="migrate-hb-ng-templates.xsl"/>
 
@@ -27,8 +26,8 @@
 
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.eurocris.org/ontologies/semcerif/1.3#cfResPubl&gt; .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://erlangen-crm.org/efrbroo/121016/F22_Self-Contained_Expression&gt; .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://rdaregistry.info/Elements/c/Expression&gt; .
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://erlangen-crm.org/efrbroo/121016/F3_Manifestation_Product_Type&gt; .
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://rdaregistry.info/Elements/c/Manifestation&gt; .
 &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://purl.org/ontology/bibo/Document&gt; .
 &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://www.w3.org/2007/05/powder-s#describedby&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; .
 &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2007/05/powder-s#Document&gt; .
@@ -830,31 +829,31 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                 <xsl:if test="current()/mods:relatedItem[@type='host']">
                     <xsl:variable name="journal-uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0'"/></xsl:variable>
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://erlangen-crm.org/efrbroo/121016/F18_Serial_Work&gt; .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://rdaregistry.info/Elements/c/Work&gt; .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://purl.org/ontology/bibo/Journal&gt; .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>&gt; &lt;http://www.w3.org/2007/05/powder-s#describedby&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>/about&gt; .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2007/05/powder-s#Document&gt; .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/ns/prov#Entity&gt; .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://schema.org/Dataset&gt; .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://www.w3.org/2007/05/powder-s#describedby&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>/about-meta&gt; .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://erlangen-crm.org/efrbroo/121016/P70_documents&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>&gt; .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://creativecommons.org/ns#licence&gt; &lt;http://creativecommons.org/publicdomain/zero/1.0/legalcode&gt; .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://creativecommons.org/ns#attributionURL&gt; &lt;<xsl:value-of select="$ccAttributionURL" />&gt; .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://creativecommons.org/ns#attributionName&gt; "<xsl:value-of select="$ccAttributionName" />" .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://purl.org/dc/terms#created&gt; "<xsl:value-of select="$creationDate"/>" .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://purl.org/dc/terms#modified&gt; "<xsl:value-of select="$changeDate"/>" .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://purl.org/dc/terms#hasVersion&gt; &lt;<xsl:value-of select="concat($baseuri, 'concept:', $hasVersion)"/>&gt; .
-&lt;<xsl:value-of select="$collectionURI"/>&gt; &lt;http://schema.org/dataset&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>/about&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://erlangen-crm.org/efrbroo/121016/F18_Serial_Work&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://rdaregistry.info/Elements/c/Work&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://purl.org/ontology/bibo/Journal&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://www.w3.org/2007/05/powder-s#describedby&gt; &lt;<xsl:value-of select="$journal-uuid"/>/about&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2007/05/powder-s#Document&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/ns/prov#Entity&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://schema.org/Dataset&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://www.w3.org/2007/05/powder-s#describedby&gt; &lt;<xsl:value-of select="$journal-uuid"/>/about-meta&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://erlangen-crm.org/efrbroo/121016/P70_documents&gt; &lt;<xsl:value-of select="$journal-uuid"/>&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://creativecommons.org/ns#licence&gt; &lt;http://creativecommons.org/publicdomain/zero/1.0/legalcode&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://creativecommons.org/ns#attributionURL&gt; &lt;<xsl:value-of select="$ccAttributionURL" />&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://creativecommons.org/ns#attributionName&gt; "<xsl:value-of select="$ccAttributionName" />" .
+&lt;<xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://purl.org/dc/terms#created&gt; "<xsl:value-of select="$creationDate"/>" .
+&lt;<xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://purl.org/dc/terms#modified&gt; "<xsl:value-of select="$changeDate"/>" .
+&lt;<xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
+&lt;<xsl:value-of select="$journal-uuid"/>/about&gt; &lt;http://purl.org/dc/terms#hasVersion&gt; &lt;<xsl:value-of select="concat($baseuri, 'concept:', $hasVersion)"/>&gt; .
+&lt;<xsl:value-of select="$collectionURI"/>&gt; &lt;http://schema.org/dataset&gt; &lt;<xsl:value-of select="$journal-uuid"/>/about&gt; .
 }};
 <!-- isPartOf / hasPart -->
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://purl.org/dc/terms#isPartOf&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>&gt; .
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>&gt; &lt;http://purl.org/dc/terms#hasPart&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; .
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://purl.org/dc/terms#isPartOf&gt; &lt;<xsl:value-of select="$journal-uuid"/>&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://purl.org/dc/terms#hasPart&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; .
 }};
 
-                    <xsl:variable name="journal-title-uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-title'"/></xsl:variable>
+                    <xsl:variable name="journal-title-uuid"><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-title'"/></xsl:variable>
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$journal-title-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2000/01/rdf-schema#Resource&gt; .
 &lt;<xsl:value-of select="$baseuri" />const/<xsl:value-of select="$journal-title-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://erlangen-crm.org/120111/E35_Title&gt; .
@@ -867,47 +866,47 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$journal-title-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#value&gt; "<xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$journalTitleString"/><xsl:with-param name="replace" select="'&quot;'"/><xsl:with-param name="by" select="'\&quot;'"/></xsl:call-template>" .
 }};
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>&gt; &lt;http://purl.org/dc/terms#title&gt; &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$journal-title-uuid"/>&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://purl.org/dc/terms#title&gt; &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$journal-title-uuid"/>&gt; .
 }};
 
                     <xsl:if test="current()/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='volume']/mods:number">
-                        <xsl:variable name="uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-volume'"/></xsl:variable>
+                        <xsl:variable name="uuid"><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-volume'"/></xsl:variable>
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2000/01/rdf-schema#Resource&gt; .
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#value&gt; "<xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='volume']/mods:number"/>" .
 }};
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>&gt; &lt;http://purl.org/ontology/bibo/volume&gt; &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://purl.org/ontology/bibo/volume&gt; &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; .
 }};
                     </xsl:if>
                     <xsl:if test="current()/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='issue']/mods:number">
-                        <xsl:variable name="uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-issue'"/></xsl:variable>
+                        <xsl:variable name="uuid"><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-issue'"/></xsl:variable>
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2000/01/rdf-schema#Resource&gt; .
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#value&gt; "<xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:part/mods:detail[@type='issue']/mods:number"/>" .
 }};
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>&gt; &lt;http://purl.org/ontology/bibo/issue&gt; &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://purl.org/ontology/bibo/issue&gt; &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; .
 }};
                     </xsl:if>
                     <xsl:if test="current()/mods:relatedItem[@type='host']/mods:identifier[@type='issn']">
-                        <xsl:variable name="uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-issn'"/></xsl:variable>
+                        <xsl:variable name="uuid"><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-issn'"/></xsl:variable>
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2000/01/rdf-schema#Resource&gt; .
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#value&gt; "[ISSN] <xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:identifier[@type='issn']"/>" .
 }};
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>&gt; &lt;http://purl.org/dc/terms#identifier&gt; &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://purl.org/dc/terms#identifier&gt; &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; .
 }};
                     </xsl:if>
                     <xsl:if test="current()/mods:relatedItem[@type='host']/mods:identifier[@type='isbn']">
-                        <xsl:variable name="uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-isbn'"/></xsl:variable>
+                        <xsl:variable name="uuid"><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-isbn'"/></xsl:variable>
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2000/01/rdf-schema#Resource&gt; .
 &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#value&gt; "[ISBN] <xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:identifier[@type='isbn']"/>" .
 }};
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
-&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$journal-uuid"/>&gt; &lt;http://purl.org/dc/terms#identifier&gt; &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; .
+&lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://purl.org/dc/terms#identifier&gt; &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; .
 }};
                     </xsl:if>
                 </xsl:if>
