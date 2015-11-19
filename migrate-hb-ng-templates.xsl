@@ -137,7 +137,6 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
     </xsl:template>
 
     <xsl:template name="person">
-		<xsl:param name="shipUUID"/>
         <xsl:param name="vivoweb"/>
         <xsl:param name="output"/>
         <xsl:param name="creationDate"/>
@@ -280,6 +279,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 
     <!--zweite Insert-Data-Anweisung zu withoutGND, anzuwenden bei aut Person und Corporate Bodies sowie bei edt Corporate Bodies-->
     <xsl:template name="withoutSec">
+		<xsl:param name="shipUUID"/>
         <xsl:param name="output"/>
         <xsl:param name="recordIdentifier"/>
         <xsl:param name="type" select=" 'manifestation' "/>
@@ -294,17 +294,17 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 		</xsl:variable> 
 		   
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
-&lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;<xsl:value-of select="$uuid"/>&gt; .
+&lt;<xsl:value-of select="$shipUUID"/>&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;<xsl:value-of select="$uuid"/>&gt; .
 }};
     </xsl:template>
 
     <!--zweite Insert-Data-Anweisung zu withoutGND, anzuwenden bei edt Persons-->
     <xsl:template name="withoutEdtCor">
+		<xsl:param name="shipUUID"/>
         <xsl:param name="output"/>
         <xsl:param name="recordIdentifier"/>
         <xsl:param name="type" select=" 'manifestation' "/>
         <xsl:param name="position" select=" '0' "/>
-        <xsl:param name="shipUUID"/>
         <xsl:param name="newURI"/>
 		<xsl:variable name="fieldname" select="$output"/> 	 
 		<xsl:variable name="uuid">
@@ -320,7 +320,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;<xsl:value-of select="$uuid" />&gt; &lt;http://vivoweb.org/ontology/core#orcidid&gt; "orcidid:<xsl:value-of select="$uuid" />" .
 &lt;<xsl:value-of select="$uuid" />&gt; &lt;http://vivoweb.org/ontology/core#scopusid&gt; "scopusid:<xsl:value-of select="$uuid" />" .
 
-&lt;<xsl:value-of select="$uuid" />&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$uuid" />&gt; .
+&lt;<xsl:value-of select="$shipUUID" />&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;http://data.ub.tu-dortmund.de/resource/<xsl:value-of select="$uuid" />&gt; .
 }};
     </xsl:template>
 

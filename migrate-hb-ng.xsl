@@ -429,6 +429,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 							</xsl:with-param>                                                         
                         </xsl:call-template>
                         <xsl:call-template name="withoutSec">
+							<xsl:with-param name="shipUUID" select="$authorship-uuid"/>
 							<xsl:with-param name="output" select="'name'"/>
 							<xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>                            
                             <xsl:with-param name="position" select="position()"/>  
@@ -462,7 +463,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 							</xsl:with-param>                                             
                         </xsl:call-template>
                         <xsl:call-template name="withoutSec">
-                            <xsl:with-param name="shipUUID"/>
+                            <xsl:with-param name="shipUUID" select="$authorship-uuid"/>
 							<xsl:with-param name="output" select="'name'"/>                            
 							<xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>   
                             <xsl:with-param name="position" select="position()"/>  
@@ -539,6 +540,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 							</xsl:with-param>                                                           
                         </xsl:call-template>
                         <xsl:call-template name="withoutEdtCor">
+							<xsl:with-param name="shipUUID" select="$editorship-uuid"/>                        
 							<xsl:with-param name="output" select="'name'"/> 
 							<xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>   
                             <xsl:with-param name="position" select="position()"/>  
@@ -584,6 +586,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 							</xsl:with-param>                                             
                         </xsl:call-template>
                         <xsl:call-template name="withoutSec">
+							<xsl:with-param name="shipUUID" select="$editorship-uuid"/>                           
 							<xsl:with-param name="output" select="'name'"/> 
 							<xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>   
                             <xsl:with-param name="position" select="position()"/>  
@@ -612,6 +615,10 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 									</xsl:otherwise>
             		  		</xsl:choose>
             		  	</xsl:variable>
+            		  	<xsl:variable name="subject-uuid">
+								<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/>/subject
+            		  	</xsl:variable>
+
 
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2004/02/skos/core#Concept&gt; .
@@ -638,8 +645,9 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;<xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://purl.org/dc/terms#subject&gt; &lt;<xsl:value-of select="$uuid"/>&gt; .
 }};
 
+
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&gt; {
-&lt;<xsl:value-of select="uuid"/>&gt; &lt;http://rdaregistry.info/Elements/w/subjectRelationship&gt; &lt;<xsl:value-of select="$uuid"/>&gt; .
+&lt;<xsl:value-of select="$subject-uuid"/>&gt; &lt;http://rdaregistry.info/Elements/w/subjectRelationship&gt; &lt;<xsl:value-of select="$uuid"/>&gt; .
 }};
                 </xsl:for-each>
 
