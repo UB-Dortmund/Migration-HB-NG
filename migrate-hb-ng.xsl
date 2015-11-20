@@ -834,6 +834,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                 </xsl:if>
 
                 <!-- TODO dies hier war und ist ein Provisorium! -->
+				<xsl:if test="current()/mods:relatedItem[@type='host']">
+					&lt;dctype=<xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']"/>&gt;
+					&lt;http://data.uaruhr.de/resource/concept:independent_publication&gt;
+				</xsl:if>
+                
                 <xsl:if test="current()/mods:relatedItem[@type='host']">
                     <xsl:variable name="journal-uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0'"/></xsl:variable>
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
@@ -917,6 +922,16 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://purl.org/dc/terms#identifier&gt; &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; .
 }};
                     </xsl:if>
+                    <xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']">
+                        <xsl:variable name="uuid"><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0-genre'"/></xsl:variable>
+INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
+&lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2000/01/rdf-schema#Resource&gt; .
+&lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#value&gt; "<xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']"/>" .
+}};
+INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
+&lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://purl.org/dc/terms#identifier&gt; &lt;<xsl:value-of select="$baseuri"/>const/<xsl:value-of select="$uuid"/>&gt; .
+}};
+                    </xsl:if>                    
                 </xsl:if>
             </xsl:if>
         </xsl:for-each>
