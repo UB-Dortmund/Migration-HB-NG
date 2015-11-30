@@ -17,6 +17,7 @@
     <xsl:template match="/">
 
         <xsl:for-each select="//mods:mods">
+        
 
             <xsl:variable name="recordIdentifier" select="current()/mods:recordInfo/mods:recordIdentifier"/>
             <xsl:variable name="creationDate" select="current()/mods:recordInfo/mods:recordCreationDate"/>
@@ -130,15 +131,41 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                     </xsl:call-template>
                 </xsl:if>
                 -->
-
-				<xsl:if test="current()/mods:genre[@authority='local']">
-					<xsl:call-template name="uuid">
-						<xsl:with-param name="output" select="current()/mods:genre[@authority='local']"/>
-						<xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/type' "/>
-						<xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
-					</xsl:call-template>
-				</xsl:if>	
-               
+                
+	
+				<xsl:choose>
+					<xsl:when test="current()/mods:genre[@authority='local']='Lecture' ">
+						<xsl:call-template name="uuid">
+							<xsl:with-param name="output" select="'http://data.uaruhr.de/resource/concept:lecture'"/>
+							<xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/type' "/>
+							<xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+							<!--fieldname muss als Parameter übergeben werden, da output nicht mehr den Pfad beinhaltet-->
+							<xsl:with-param name="fieldname" select="mods:genre[@authority='local']"/>
+						</xsl:call-template>					
+					</xsl:when>
+					<xsl:when test="current()/mods:genre[@authority='local']='Contribution' ">
+						<xsl:call-template name="uuid">
+							<xsl:with-param name="output" select="'http://data.uaruhr.de/resource/concept:contribution_in_conference'"/>
+							<xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/type' "/>
+							<xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+							<xsl:with-param name="fieldname" select="mods:genre[@authority='local']"/>	
+						</xsl:call-template>				
+					</xsl:when>
+					<xsl:when test="current()/mods:genre[@authority='local']='UnpublishedWork' ">
+						<xsl:call-template name="uuid">
+							<xsl:with-param name="output" select="'http://data.uaruhr.de/resource/concept:other'"/>
+							<xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/type' "/>
+							<xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+							<xsl:with-param name="fieldname" select="mods:genre[@authority='local']"/>	
+						</xsl:call-template>													
+					</xsl:when>
+					<!-- <xsl:otherwise>
+					<xsl:result-document href="result-test.xml">current()/mods:genre[@authority='local']</xsl:result-document>
+					</xsl:otherwise>-->
+				</xsl:choose>
+      					
+					
+					
                 <xsl:if test="current()/mods:originInfo/mods:dateIssued">
                     <xsl:call-template name="uuid">
                         <xsl:with-param name="output" select="mods:originInfo/mods:dateIssued"/>
@@ -834,12 +861,18 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                 </xsl:if>
 
                 <!-- TODO dies hier war und ist ein Provisorium! -->
-				<xsl:if test="current()/mods:relatedItem[@type='host']">
-					&lt;dctype=<xsl:value-of select="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']"/>&gt;
-					&lt;http://data.uaruhr.de/resource/concept:independent_publication&gt;
-				</xsl:if>
                 
                 <xsl:if test="current()/mods:relatedItem[@type='host']">
+
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']">
+							http://data.uaruhr.de/resource/concept:proceedings
+						</xsl:if>
+						
+	
+					
+                	&lt;dctype:&gt;
+					&lt;http://data.uaruhr.de/resource/concept:independent_publication&gt;
+                
                     <xsl:variable name="journal-uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0'"/></xsl:variable>
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://erlangen-crm.org/efrbroo/121016/F18_Serial_Work&gt; .
