@@ -34,11 +34,12 @@
         <xsl:param name="type" select=" 'manifestation' "/>
         <xsl:param name="position" select=" '0' "/>
         <xsl:param name="newURI"/>
-		<xsl:variable name="fieldname" select="name($output)"/> 	 
+		<xsl:param name="fieldname" select="name($output)"/>
 		<xsl:variable name="uuid">
 			<xsl:choose>
 			   <!--Wenn bei newURI nichts übergeben wird (leere Zeichenkette), wird valueURI erzeugt-->
-				<xsl:when test="$newURI=''"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/></xsl:when>
+                <xsl:when test="$newURI='' and not($fieldname='genre')"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="$type"/>-<xsl:value-of select="$position"/>-<xsl:value-of select="$fieldname"/></xsl:when>
+                <xsl:when test="$fieldname='genre'"><xsl:value-of select="$output"/></xsl:when>
 				<xsl:otherwise><xsl:value-of select="$newURI"/></xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable> 

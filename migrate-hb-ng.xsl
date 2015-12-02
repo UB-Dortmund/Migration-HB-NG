@@ -9,12 +9,28 @@
     <xsl:output method="text" indent="yes" encoding="UTF-8"/>
 
     <xsl:param name="hasVersion" select="'migrated'"/>
+    <xsl:param name="dateOfProcessing" select="'2015-12-02'"/>
     <xsl:param name="baseuri" select="'http://data.uaruhr.de/resource/'"/>
     <xsl:param name="ccAttributionName" select="'TU Dortmund University, University Library'"/>
     <xsl:param name="ccAttributionURL" select="'http://www.ub.tu-dortmund.de'"/>
     <xsl:param name="collectionURI" select="'http://data.uaruhr.de/resource/collection:hb:tudo'"/>
 
     <xsl:template match="/">
+
+        <!-- TODO collection metadata -->
+INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
+&lt;<xsl:value-of select="$collectionURI"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://schema.org/DataCatalog&gt; .
+&lt;<xsl:value-of select="$collectionURI"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2007/05/powder-s#Document&gt; .
+&lt;<xsl:value-of select="$collectionURI"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/ns/prov#Entity&gt; .
+&lt;<xsl:value-of select="$collectionURI"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://schema.org/Dataset&gt; .
+&lt;<xsl:value-of select="$collectionURI"/>/about&gt; &lt;http://www.w3.org/2007/05/powder-s#describedby&gt; &lt;<xsl:value-of select="$collectionURI"/>/about-meta&gt; .
+&lt;<xsl:value-of select="$collectionURI"/>/about&gt; &lt;http://erlangen-crm.org/efrbroo/121016/P70_documents&gt; &lt;<xsl:value-of select="$collectionURI"/>&gt; .
+&lt;<xsl:value-of select="$collectionURI"/>/about&gt; &lt;http://creativecommons.org/ns#licence&gt; &lt;http://creativecommons.org/publicdomain/zero/1.0/legalcode&gt; .
+&lt;<xsl:value-of select="$collectionURI"/>/about&gt; &lt;http://creativecommons.org/ns#attributionURL&gt; &lt;<xsl:value-of select="$ccAttributionURL" />&gt; .
+&lt;<xsl:value-of select="$collectionURI"/>/about&gt; &lt;http://creativecommons.org/ns#attributionName&gt; "<xsl:value-of select="$ccAttributionName" />" .
+&lt;<xsl:value-of select="$collectionURI"/>/about&gt; &lt;http://purl.org/dc/terms#created&gt; "<xsl:value-of select="$dateOfProcessing"/>" .
+&lt;<xsl:value-of select="$collectionURI"/>/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
+}};
 
         <xsl:for-each select="//mods:mods">
         
@@ -23,7 +39,22 @@
             <xsl:variable name="creationDate" select="current()/mods:recordInfo/mods:recordCreationDate"/>
             <xsl:variable name="changeDate" select="current()/mods:recordInfo/mods:recordChangeDate"/>
 
-            <xsl:if test="current()/mods:titleInfo and current()/mods:recordInfo and (current()/mods:originInfo/mods:dateIssued or current()/mods:relatedItem[@type='host']/mods:part/mods:date)">
+            <xsl:if test="current()/mods:titleInfo and current()/mods:recordInfo and (current()/mods:originInfo/mods:dateIssued or current()/mods:relatedItem[@type='host']/mods:originInfo/mods:dateIssued or current()/mods:relatedItem[@type='host']/mods:part/mods:date)">
+
+
+INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
+&lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://schema.org/DataCatalog&gt; .
+&lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2007/05/powder-s#Document&gt; .
+&lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/ns/prov#Entity&gt; .
+&lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://schema.org/Dataset&gt; .
+&lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://www.w3.org/2007/05/powder-s#describedby&gt; &lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>/about-meta&gt; .
+&lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://erlangen-crm.org/efrbroo/121016/P70_documents&gt; &lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>&gt; .
+&lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://creativecommons.org/ns#licence&gt; &lt;http://creativecommons.org/publicdomain/zero/1.0/legalcode&gt; .
+&lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://creativecommons.org/ns#attributionURL&gt; &lt;<xsl:value-of select="$ccAttributionURL" />&gt; .
+&lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://creativecommons.org/ns#attributionName&gt; "<xsl:value-of select="$ccAttributionName" />" .
+&lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://purl.org/dc/terms#created&gt; "<xsl:value-of select="$dateOfProcessing"/>" .
+&lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
+}};
 
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.eurocris.org/ontologies/semcerif/1.3#cfResPubl&gt; .
@@ -46,6 +77,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
 &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://purl.org/dc/terms#hasVersion&gt; &lt;<xsl:value-of select="concat($baseuri, 'concept:', $hasVersion)"/>&gt; .
 &lt;<xsl:value-of select="$collectionURI"/>&gt; &lt;http://schema.org/dataset&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; .
+&lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://schema.org/dataset&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; .
 }};
 
                 <xsl:if test="current()/mods:titleInfo/mods:title[not(@type)]">
@@ -131,39 +163,39 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                     </xsl:call-template>
                 </xsl:if>
                 -->
-                
-	
-				<xsl:choose>
-					<xsl:when test="current()/mods:genre[@authority='local']='Lecture' ">
-						<xsl:call-template name="uuid">
-							<xsl:with-param name="output" select="'http://data.uaruhr.de/resource/concept:lecture'"/>
-							<xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/type' "/>
-							<xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
-							<!--fieldname muss als Parameter übergeben werden, da output nicht mehr den Pfad beinhaltet-->
-							<xsl:with-param name="fieldname" select="mods:genre[@authority='local']"/>
-						</xsl:call-template>					
-					</xsl:when>
-					<xsl:when test="current()/mods:genre[@authority='local']='Contribution' ">
-						<xsl:call-template name="uuid">
-							<xsl:with-param name="output" select="'http://data.uaruhr.de/resource/concept:contribution_in_conference'"/>
-							<xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/type' "/>
-							<xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
-							<xsl:with-param name="fieldname" select="mods:genre[@authority='local']"/>	
-						</xsl:call-template>				
-					</xsl:when>
-					<xsl:when test="current()/mods:genre[@authority='local']='UnpublishedWork' ">
-						<xsl:call-template name="uuid">
-							<xsl:with-param name="output" select="'http://data.uaruhr.de/resource/concept:other'"/>
-							<xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/type' "/>
-							<xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
-							<xsl:with-param name="fieldname" select="mods:genre[@authority='local']"/>	
-						</xsl:call-template>													
-					</xsl:when>
-					<!-- <xsl:otherwise>
-					<xsl:result-document href="result-test.xml">current()/mods:genre[@authority='local']</xsl:result-document>
-					</xsl:otherwise>-->
-				</xsl:choose>
-      					
+
+
+                <xsl:choose>
+                    <xsl:when test="current()/mods:genre[@authority='local']='Lecture' ">
+                        <xsl:call-template name="uuid">
+                            <xsl:with-param name="output" select="'http://data.uaruhr.de/resource/concept:lecture'"/>
+                            <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/type' "/>
+                            <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                            <!--fieldname muss als Parameter übergeben werden, da output nicht mehr den Pfad beinhaltet-->
+                            <xsl:with-param name="fieldname" select="'genre'"/>
+                        </xsl:call-template>
+                    </xsl:when>
+                    <xsl:when test="current()/mods:genre[@authority='local']='Contribution' ">
+                        <xsl:call-template name="uuid">
+                            <xsl:with-param name="output" select="'http://data.uaruhr.de/resource/concept:contribution_in_conference'"/>
+                            <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/type' "/>
+                            <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                            <xsl:with-param name="fieldname" select="'genre'"/>
+                        </xsl:call-template>
+                    </xsl:when>
+                    <xsl:when test="current()/mods:genre[@authority='local']='UnpublishedWork' ">
+                        <xsl:call-template name="uuid">
+                            <xsl:with-param name="output" select="'http://data.uaruhr.de/resource/concept:other'"/>
+                            <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/type' "/>
+                            <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                            <xsl:with-param name="fieldname" select="'genre'"/>
+                        </xsl:call-template>
+                    </xsl:when>
+                    <!-- <xsl:otherwise>
+                    <xsl:result-document href="result-test.xml">current()/mods:genre[@authority='local']</xsl:result-document>
+                    </xsl:otherwise>-->
+                </xsl:choose>
+
 					
 					
                 <xsl:if test="current()/mods:originInfo/mods:dateIssued">

@@ -15,3 +15,5 @@
 *.log
 tmp*
 
+# this project
+data/results/
