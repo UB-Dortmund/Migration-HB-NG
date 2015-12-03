@@ -177,6 +177,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 }};
     </xsl:template>
 
+    <!-- TODO keine eigenen URIs definieren! -->
     <xsl:template name="withGND">
         <xsl:param name="persOrg"/>
         <xsl:param name="cerifURI"/>
@@ -185,6 +186,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
         <xsl:param name="creationDate"/>
         <xsl:param name="changeDate"/>
         <xsl:param name="uuid"/>
+        <xsl:param name="isPatent" select="false()"/>
 
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://xmlns.com/foaf/0.1/<xsl:value-of select="$persOrg"/>&gt; .
@@ -218,7 +220,13 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>&gt; &lt;http://vivoweb.org/ontology/core#orcidid&gt; "orcidid:<xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>" .
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>&gt; &lt;http://vivoweb.org/ontology/core#scopusid&gt; "scopusid:<xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>" .
 
+                <!-- TODO Im Fall eines Patents gibt es diese Relation nicht. Hier muss dann $recordIdentifier http://purl.org/dc/terms/rightsHolder $gndid verwendet werden! -->
+                <xsl:if test="not($isPatent)">
 &lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://vivoweb.org/ontology/core#relates&gt; &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>&gt; .
+                </xsl:if>
+                <xsl:if test="$isPatent">
+&lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://purl.org/dc/terms/rightsHolder&gt; &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="substring-after(@valueURI, 'gnd/')"/>&gt; .
+                </xsl:if>
 }};
             </xsl:when>
             <xsl:otherwise>

@@ -41,7 +41,6 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 
             <xsl:if test="current()/mods:titleInfo and current()/mods:recordInfo and (current()/mods:originInfo/mods:dateIssued or current()/mods:relatedItem[@type='host']/mods:originInfo/mods:dateIssued or current()/mods:relatedItem[@type='host']/mods:part/mods:date)">
 
-
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://schema.org/DataCatalog&gt; .
 &lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2007/05/powder-s#Document&gt; .
@@ -55,6 +54,8 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 &lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://purl.org/dc/terms#created&gt; "<xsl:value-of select="$dateOfProcessing"/>" .
 &lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
 }};
+
+                <xsl:if test="not(current()/mods:genre[@authority='local']='Patent')">
 
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.eurocris.org/ontologies/semcerif/1.3#cfResPubl&gt; .
@@ -80,11 +81,11 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 &lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://schema.org/dataset&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; .
 }};
 
-                <xsl:if test="current()/mods:titleInfo/mods:title[not(@type)]">
+                <xsl:if test="current()/mods:titleInfo[not(@type)]/mods:title">
                     <xsl:call-template name="title-uuid">
-                        <xsl:with-param name="output" select="current()/mods:titleInfo/mods:title"/>
+                        <xsl:with-param name="output" select="current()/mods:titleInfo[not(@type)]/mods:title"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#title' "/>
-                        <xsl:with-param name="subTitle" select="current()/mods:titleInfo/mods:subTitle"/>
+                        <xsl:with-param name="subTitle" select="current()/mods:titleInfo[not(@type)]/mods:subTitle"/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
 						<xsl:with-param name="newURI">					
 							<xsl:if test="current()/mods:titleInfo/mods:title[@valueURI and @authority='hbng']">
@@ -164,8 +165,18 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                 </xsl:if>
                 -->
 
+                    <xsl:if test="not(current()/mods:relatedItem[@type='host'])">
+                        <xsl:call-template name="uuid">
+                            <xsl:with-param name="output" select="'http://data.uaruhr.de/resource/concept:independent_publication'"/>
+                            <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/type' "/>
+                            <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                            <!--fieldname muss als Parameter übergeben werden, da output nicht mehr den Pfad beinhaltet-->
+                            <xsl:with-param name="fieldname" select="'genre'"/>
+                        </xsl:call-template>
+                    </xsl:if>
 
-                <xsl:choose>
+
+                    <xsl:choose>
                     <xsl:when test="current()/mods:genre[@authority='local']='Lecture' ">
                         <xsl:call-template name="uuid">
                             <xsl:with-param name="output" select="'http://data.uaruhr.de/resource/concept:lecture'"/>
@@ -211,6 +222,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                     </xsl:call-template>
                 </xsl:if>
 
+                    <!-- TODO das wird in der ÜO unten gebraucht, nicht hier
                 <xsl:if test="current()/mods:relatedItem[@type='host']/mods:part/mods:date">
                     <xsl:call-template name="uuid">
                         <xsl:with-param name="output" select="current()/mods:relatedItem[@type='host']/mods:part/mods:date"/>
@@ -223,6 +235,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 						</xsl:with-param>                          
                     </xsl:call-template>
                 </xsl:if>
+                -->
 
                 <xsl:if test="current()/mods:language/mods:languageTerm">
                     <xsl:call-template name="uuid">
@@ -328,6 +341,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                     </xsl:call-template>
                 </xsl:if>
 
+                    <!-- TODO wird nicht benötigt !
                 <xsl:if test="current()/mods:recordInfo/mods:recordCreationDate">
                     <xsl:call-template name="uuid">
                         <xsl:with-param name="output" select="current()/mods:recordInfo/mods:recordCreationDate"/>
@@ -353,6 +367,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
 						</xsl:with-param>                            
                     </xsl:call-template>
                 </xsl:if>
+                -->
 
                 <xsl:if test="current()/mods:originInfo/mods:place/mods:placeTerm[@type='text']">
                     <xsl:call-template name="uuid">
@@ -884,7 +899,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                         <xsl:with-param name="output" select="current()/mods:location/mods:url"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/Location' "/>
                         <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>   
-                        							<xsl:with-param name="newURI">								
+                        <xsl:with-param name="newURI">
 								<xsl:if test="current()/mods:location/mods:url[@valueURI and @authority='hbng']">
 									<xsl:value-of select="current()/mods:location/mods:url/@valueURI"/>
 								</xsl:if>
@@ -896,6 +911,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                 
                 <xsl:if test="current()/mods:relatedItem[@type='host']">
 
+                    <!--
 						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']">
 							http://data.uaruhr.de/resource/concept:proceedings
 						</xsl:if>
@@ -904,8 +920,28 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
 					
                 	&lt;dctype:&gt;
 					&lt;http://data.uaruhr.de/resource/concept:independent_publication&gt;
-                
+-->
+
+                    <xsl:call-template name="uuid">
+                        <xsl:with-param name="output" select="'http://data.uaruhr.de/resource/concept:dependent_publication'"/>
+                        <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/type' "/>
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                        <!--fieldname muss als Parameter übergeben werden, da output nicht mehr den Pfad beinhaltet-->
+                        <xsl:with-param name="fieldname" select="'genre'"/>
+                    </xsl:call-template>
+
                     <xsl:variable name="journal-uuid"><xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/<xsl:value-of select="'work'"/>-<xsl:value-of select="'0'"/></xsl:variable>
+
+                    <xsl:call-template name="uuid">
+                        <xsl:with-param name="output" select="'http://data.uaruhr.de/resource/concept:independent_publication'"/>
+                        <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/type' "/>
+                        <xsl:with-param name="recordIdentifier" select="$journal-uuid"/>
+                        <!--fieldname muss als Parameter übergeben werden, da output nicht mehr den Pfad beinhaltet-->
+                        <xsl:with-param name="fieldname" select="'genre'"/>
+                    </xsl:call-template>
+
+                    <!-- TODO genre Proceeding -->
+
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://erlangen-crm.org/efrbroo/121016/F18_Serial_Work&gt; .
 &lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://rdaregistry.info/Elements/c/Work&gt; .
@@ -999,6 +1035,244 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
                     </xsl:if>                    
                 </xsl:if>
             </xsl:if>
+            </xsl:if>
+
+            <!-- Patent -->
+            <xsl:if test="current()/mods:genre[@authority='local']='Patent'">
+
+INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.eurocris.org/ontologies/semcerif/1.3#cfResPat&gt; .
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://erlangen-crm.org/120111/E31_Document&gt; .
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://purl.org/ontology/bibo/Document&gt; .
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://www.w3.org/2007/05/powder-s#describedby&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; .
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2007/05/powder-s#Document&gt; .
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/ns/prov#Entity&gt; .
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://schema.org/Dataset&gt; .
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://www.w3.org/2007/05/powder-s#describedby&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about-meta&gt; .
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://erlangen-crm.org/efrbroo/121016/P70_documents&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>&gt; .
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://creativecommons.org/ns#licence&gt; &lt;http://creativecommons.org/publicdomain/zero/1.0/legalcode&gt; .
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://creativecommons.org/ns#attributionURL&gt; &lt;<xsl:value-of select="$ccAttributionURL" />&gt; .
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://creativecommons.org/ns#attributionName&gt; "<xsl:value-of select="$ccAttributionName" />" .
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://purl.org/dc/terms#created&gt; "<xsl:value-of select="$creationDate"/>" .
+<xsl:if test="$changeDate != ''">
+    &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://purl.org/dc/terms#modified&gt; "<xsl:value-of select="$changeDate"/>" .
+</xsl:if>
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://purl.org/dc/terms#accessRights&gt; "public" .
+&lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; &lt;http://purl.org/dc/terms#hasVersion&gt; &lt;<xsl:value-of select="concat($baseuri, 'concept:', $hasVersion)"/>&gt; .
+&lt;<xsl:value-of select="$collectionURI"/>&gt; &lt;http://schema.org/dataset&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; .
+&lt;<xsl:value-of select="$baseuri"/>datacatalog:<xsl:value-of select="$recordIdentifier"/>&gt; &lt;http://schema.org/dataset&gt; &lt;<xsl:value-of select="$baseuri"/><xsl:value-of select="$recordIdentifier"/>/about&gt; .
+}};
+
+                <xsl:if test="current()/mods:titleInfo[not(@type)]/mods:title">
+                    <xsl:call-template name="title-uuid">
+                        <xsl:with-param name="output" select="current()/mods:titleInfo[not(@type)]/mods:title"/>
+                        <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#title' "/>
+                        <xsl:with-param name="subTitle" select="current()/mods:titleInfo[not(@type)]/mods:subTitle"/>
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                        <xsl:with-param name="newURI">
+                            <xsl:if test="current()/mods:titleInfo/mods:title[@valueURI and @authority='hbng']">
+                                <xsl:value-of select="current()/mods:titleInfo/mods:title/@valueURI"/>
+                            </xsl:if>
+                        </xsl:with-param>
+                    </xsl:call-template>
+                </xsl:if>
+
+                <xsl:if test="current()/mods:titleInfo[@type='abbreviated']/mods:title">
+                    <xsl:call-template name="title-uuid">
+                        <xsl:with-param name="output" select="current()/mods:titleInfo[@type='abbreviated']/mods:title"/>
+                        <xsl:with-param name="uri" select=" 'http://purl.org/ontology/bibo/shortTitle' "/>
+                        <xsl:with-param name="subTitle" select="current()/mods:titleInfo[@type='abbreviated']/mods:subTitle"/>
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                        <xsl:with-param name="newURI">
+                            <xsl:if test="current()/mods:titleInfo[@type='abbreviated']/mods:title[@valueURI and @authority='hbng']">
+                                <xsl:value-of select="current()/mods:titleInfo[@type='abbreviated']/mods:title/@valueURI"/>
+                            </xsl:if>
+                        </xsl:with-param>
+                    </xsl:call-template>
+                </xsl:if>
+
+                <!-- TODO eigenes Werk/Expression -->
+                <xsl:if test="current()/mods:titleInfo[@type='translated']/mods:title">
+                    <xsl:call-template name="title-uuid">
+                        <xsl:with-param name="output" select="current()/mods:titleInfo[@type='translated']/mods:title"/>
+                        <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#title' "/>
+                        <xsl:with-param name="subTitle" select="current()/mods:titleInfo[@type='translated']/mods:subTitle"/>
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                        <xsl:with-param name="newURI">
+                            <xsl:if test="current()/mods:titleInfo[@type='translated']/mods:title[@valueURI and @authority='hbng']">
+                                <xsl:value-of select="current()/mods:titleInfo[@type='translated']/mods:title/@valueURI"/>
+                            </xsl:if>
+                        </xsl:with-param>
+                    </xsl:call-template>
+                </xsl:if>
+
+                <!-- Work title -->
+                <xsl:if test="current()/mods:titleInfo[@type='uniform']/mods:title">
+                    <xsl:call-template name="title-uuid">
+                        <xsl:with-param name="output" select="current()/mods:titleInfo[@type='uniform']/mods:title"/>
+                        <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#title' "/>
+                        <xsl:with-param name="subTitle" select="current()/mods:titleInfo[@type='uniform']/mods:subTitle"/>
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                        <xsl:with-param name="newURI">
+                            <xsl:if test="current()/mods:titleInfo[@type='uniform']/mods:title[@valueURI and @authority='hbng']">
+                                <xsl:value-of select="current()/mods:titleInfo[@type='uniform']/mods:title/@valueURI"/>
+                            </xsl:if>
+                        </xsl:with-param>
+                    </xsl:call-template>
+                </xsl:if>
+
+                <xsl:if test="current()/mods:titleInfo[@type='alternative']/mods:title">
+                    <xsl:call-template name="title-uuid">
+                        <xsl:with-param name="output" select="current()/mods:titleInfo[@type='alternative']/mods:title"/>
+                        <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/alternative' "/>
+                        <xsl:with-param name="subTitle" select="current()/mods:titleInfo[@type='alternative']/mods:subTitle"/>
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                        <xsl:with-param name="newURI">
+                            <xsl:if test="current()/mods:titleInfo[@type='alternative']/mods:title[@valueURI and @authority='hbng']">
+                                <xsl:value-of select="current()/mods:titleInfo[@type='alternative']/mods:title/@valueURI"/>
+                            </xsl:if>
+                        </xsl:with-param>
+                    </xsl:call-template>
+                </xsl:if>
+
+                <xsl:call-template name="uuid">
+                    <xsl:with-param name="output" select="'http://data.uaruhr.de/resource/concept:patent'"/>
+                    <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/type' "/>
+                    <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                    <!--fieldname muss als Parameter übergeben werden, da output nicht mehr den Pfad beinhaltet-->
+                    <xsl:with-param name="fieldname" select="'genre'"/>
+                </xsl:call-template>
+
+                <xsl:if test="current()/mods:originInfo/mods:place/mods:placeTerm[@type='text']">
+                    <xsl:call-template name="uuid">
+                        <xsl:with-param name="output" select="current()/mods:originInfo/mods:place/mods:placeTerm[@type='text']"/>
+                        <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/Location' "/>
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                        <xsl:with-param name="newURI">
+                            <xsl:if test="current()/mods:originInfo/mods:place/mods:placeTerm[@type='text' and @valueURI and @authority='hbng']">
+                                <xsl:value-of select="current()/mods:originInfo/mods:place/mods:placeTerm[@type='text']/@valueURI"/>
+                            </xsl:if>
+                        </xsl:with-param>
+                    </xsl:call-template>
+                </xsl:if>
+
+                <xsl:if test="current()/mods:abstract">
+                    <xsl:call-template name="abstract">
+                        <xsl:with-param name="output" select="current()/mods:abstract"/>
+                        <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/abstract' "/>
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                        <xsl:with-param name="newURI">
+                            <xsl:if test="current()/mods:abstract[@valueURI and @authority='hbng']">
+                                <xsl:value-of select="current()/mods:abstract/@valueURI"/>
+                            </xsl:if>
+                        </xsl:with-param>
+                    </xsl:call-template>
+                </xsl:if>
+
+                <xsl:if test="current()/mods:abstract[@shareable='no']">
+                    <xsl:call-template name="abstractShareable">
+                        <xsl:with-param name="output" select="current()/mods:abstract[@shareable='no']"/>
+                        <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/abstract' "/>
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                        <xsl:with-param name="newURI">
+                            <xsl:if test="current()/mods:abstract[@shareable='no' and @valueURI and @authority='hbng']">
+                                <xsl:value-of select="current()/mods:abstract[@shareable='no']/@valueURI"/>
+                            </xsl:if>
+                        </xsl:with-param>
+                    </xsl:call-template>
+                </xsl:if>
+
+                <xsl:if test="current()/mods:originInfo/mods:dateIssued">
+                    <xsl:call-template name="uuid">
+                        <xsl:with-param name="output" select="mods:originInfo/mods:dateIssued"/>
+                        <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#issued' "/>
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                        <xsl:with-param name="newURI">
+                            <xsl:if test="current()/mods:originInfo/mods:dateIssued[@valueURI and @authority='hbng']">
+                                <xsl:value-of select="current()/mods:originInfo/mods:dateIssued/@valueURI"/>
+                            </xsl:if>
+                        </xsl:with-param>
+                    </xsl:call-template>
+                </xsl:if>
+
+                <xsl:if test="current()/mods:originInfo/mods:dateOther">
+                    <xsl:call-template name="uuid">
+                        <xsl:with-param name="output" select="mods:originInfo/mods:dateOther"/>
+                        <xsl:with-param name="uri" select=" 'http://vivoweb.org/ontology/core#filingDate' "/>
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                        <xsl:with-param name="newURI">
+                            <xsl:if test="current()/mods:originInfo/mods:dateIssued[@valueURI and @authority='hbng']">
+                                <xsl:value-of select="current()/mods:originInfo/mods:dateIssued/@valueURI"/>
+                            </xsl:if>
+                        </xsl:with-param>
+                    </xsl:call-template>
+                </xsl:if>
+
+                <xsl:if test="current()/mods:language/mods:languageTerm">
+                    <xsl:call-template name="uuid">
+                        <xsl:with-param name="output" select="current()/mods:language/mods:languageTerm"/>
+                        <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms#language' "/>
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                    </xsl:call-template>
+                </xsl:if>
+
+                <xsl:if test="current()/mods:identifier[@displayLabel='Veröffentlichungs-Nr']">
+                    <xsl:call-template name="uuid">
+                        <xsl:with-param name="output" select="current()/mods:identifier[@displayLabel='Veröffentlichungs-Nr']"/>
+                        <xsl:with-param name="uri" select=" 'http://vivoweb.org/ontology/core#patentNumber' "/>
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                        <xsl:with-param name="newURI">
+                            <xsl:if test="current()/mods:identifier[@displayLabel='Veröffentlichungs-Nr' and @valueURI and @authority='hbng']">
+                                <xsl:value-of select="current()/mods:identifier[@displayLabel='Veröffentlichungs-Nr']/@valueURI"/>
+                            </xsl:if>
+                        </xsl:with-param>
+                    </xsl:call-template>
+                </xsl:if>
+
+                <xsl:if test="current()/mods:identifier[@displayLabel='Anmeldenummer']">
+                    <xsl:call-template name="uuid">
+                        <xsl:with-param name="output" select="current()/mods:identifier[@displayLabel='Anmeldenummer']"/>
+                        <xsl:with-param name="uri" select=" 'http://vivoweb.org/ontology/core#filingNumber' "/>
+                        <xsl:with-param name="recordIdentifier" select="$recordIdentifier"/>
+                        <xsl:with-param name="newURI">
+                            <xsl:if test="current()/mods:identifier[@displayLabel='Anmeldenummer' and @valueURI and @authority='hbng']">
+                                <xsl:value-of select="current()/mods:identifier[@displayLabel='Anmeldenummer']/@valueURI"/>
+                            </xsl:if>
+                        </xsl:with-param>
+                    </xsl:call-template>
+                </xsl:if>
+
+            </xsl:if>
+
+            <!-- Persons with GND-ID -->
+            <xsl:for-each select="current()/mods:name[@type='personal' and @authority='gnd'and starts-with(@valueURI, 'http://d-nb.info/gnd/') ]">
+
+                <xsl:call-template name="withGND">
+                    <xsl:with-param name="persOrg" select=" 'Person' "/>
+                    <xsl:with-param name="cerifURI" select=" 'Pers' "/>
+                    <xsl:with-param name="crmURI" select=" 'F10_Person' "/>
+                    <xsl:with-param name="rdaURI" select=" 'Person' "/>
+                    <xsl:with-param name="creationDate" select="$creationDate"/>
+                    <xsl:with-param name="changeDate" select="$changeDate"/>
+                    <xsl:with-param name="uuid" select="$recordIdentifier"/>
+                    <xsl:with-param name="isPatent" select="true()"/>
+                </xsl:call-template>
+            </xsl:for-each>
+
+            <!-- Corporate body with GND-ID -->
+            <xsl:for-each select="current()/mods:name[@type='corporate' and @authority='gnd'and starts-with(@valueURI, 'http://d-nb.info/gnd/') ]">
+                <xsl:call-template name="withGND">
+                    <xsl:with-param name="persOrg" select=" 'Organization' "/>
+                    <xsl:with-param name="cerifURI" select=" 'OrgUnit' "/>
+                    <xsl:with-param name="crmURI" select=" 'F11_CorporateBody' "/>
+                    <xsl:with-param name="rdaURI" select=" 'CorporateBody' "/>
+                    <xsl:with-param name="creationDate" select="$creationDate"/>
+                    <xsl:with-param name="changeDate" select="$changeDate"/>
+                    <xsl:with-param name="uuid" select="$recordIdentifier"/>
+                    <xsl:with-param name="isPatent" select="true()"/>
+                </xsl:call-template>
+            </xsl:for-each>
+
         </xsl:for-each>
     </xsl:template>
 </xsl:stylesheet>
