@@ -911,17 +911,6 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                 
                 <xsl:if test="current()/mods:relatedItem[@type='host']">
 
-                    <!--
-						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']">
-							http://data.uaruhr.de/resource/concept:proceedings
-						</xsl:if>
-						
-	
-					
-                	&lt;dctype:&gt;
-					&lt;http://data.uaruhr.de/resource/concept:independent_publication&gt;
--->
-
                     <xsl:call-template name="uuid">
                         <xsl:with-param name="output" select="'http://data.uaruhr.de/resource/concept:dependent_publication'"/>
                         <xsl:with-param name="uri" select=" 'http://purl.org/dc/terms/type' "/>
@@ -941,7 +930,148 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                     </xsl:call-template>
 
                     <!-- TODO genre Proceeding -->
+                    
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='ConferenceProceedings'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:proceedings&lt;/dcterms:type&gt;
+                            <!--Anzeige der zugehörigen Unterordnung (genre und recordIdentifier)-->
+							&lt;relatedItem:constituent&gt;
+								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;							
+						</xsl:if>
+					
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='Book'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:book&lt;/dcterms:type&gt;
+							&lt;relatedItem:constituent&gt;
+								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;							
+						</xsl:if>
+						
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='BookEdited'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:other&lt;/dcterms:type&gt;
+							&lt;relatedItem:constituent&gt;
+								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;							
+						</xsl:if>							
+						
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='UnpublishedWork'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:other&lt;/dcterms:type&gt;
+							&lt;relatedItem:constituent&gt;
+								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;							
+						</xsl:if>				
+        
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='Patent'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:patent&lt;/dcterms:type&gt;
+							&lt;relatedItem:constituent&gt;
+								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;							
+						</xsl:if>	        
+        
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='periodical'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:other&lt;/dcterms:type&gt;
+							&lt;relatedItem:constituent&gt;
+								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;							
+						</xsl:if>	                        
+						
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='CollectedWorks'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:collected_work&lt;/dcterms:type&gt;
+							&lt;relatedItem:constituent&gt;
+								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;							
+						</xsl:if>	    			
+						
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='Broadcast'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:radio_tv_programm&lt;/dcterms:type&gt;
+							&lt;relatedItem:constituent&gt;
+								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;							
+						</xsl:if>	    									
+						
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='LegalCommentary'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:legal_commentary&lt;/dcterms:type&gt;
+							&lt;relatedItem:constituent&gt;
+								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;							
+						</xsl:if>	  
+						
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='InternetDocument'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/internet_document:patent&lt;/dcterms:type&gt;
+							&lt;relatedItem:constituent&gt;
+								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;							
+						</xsl:if>	    	
+						
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='ComputerProgram'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:software&lt;/dcterms:type&gt;
+							&lt;relatedItem:constituent&gt;
+								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;							
+						</xsl:if>	    
+																	  						
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='Thesis'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:thesis&lt;/dcterms:type&gt;
+							&lt;relatedItem:constituent&gt;
+								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;							
+						</xsl:if>	    
+												
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='PressRelease'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:press_release&lt;/dcterms:type&gt;
+							&lt;relatedItem:constituent&gt;
+								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;							
+						</xsl:if>	    						
+						
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='AudioBook'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:other&lt;/dcterms:type&gt;
+							&lt;relatedItem:constituent&gt;
+								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;							
+						</xsl:if>	  					
 
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='AudioOrVideoDocument'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:audio_or_video_document&lt;/dcterms:type&gt;
+							&lt;relatedItem:constituent&gt;
+								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;							
+						</xsl:if>	  						
+						
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='SpecialIssue'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:special_issue&lt;/dcterms:type&gt;
+							&lt;relatedItem:constituent&gt;
+								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;							
+						</xsl:if>	  		
+						
+						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='Standard'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:standard&lt;/dcterms:type&gt;
+							&lt;relatedItem:constituent&gt;
+								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;							
+						</xsl:if>	  										
+						
+						<!--Angabe der Unterordnungen mit ihren jeweiligen Überordnungen-->
+						<!--...-->
+						
+					
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://erlangen-crm.org/efrbroo/121016/F18_Serial_Work&gt; .
 &lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://rdaregistry.info/Elements/c/Work&gt; .
