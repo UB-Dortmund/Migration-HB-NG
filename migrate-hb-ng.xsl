@@ -202,9 +202,6 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public
                             <xsl:with-param name="fieldname" select="'genre'"/>
                         </xsl:call-template>
                     </xsl:when>
-                    <!-- <xsl:otherwise>
-                    <xsl:result-document href="result-test.xml">current()/mods:genre[@authority='local']</xsl:result-document>
-                    </xsl:otherwise>-->
                 </xsl:choose>
 
 					
@@ -930,16 +927,6 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                     </xsl:call-template>
 
                     <!-- TODO genre Proceeding -->
-                    
-						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='ConferenceProceedings'">
-							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:proceedings&lt;/dcterms:type&gt;
-                            <!--Anzeige der zugehörigen Unterordnung (genre und recordIdentifier)-->
-							&lt;relatedItem:constituent&gt;
-								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
-								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
-							&lt;/relatedItem:constituent&gt;							
-						</xsl:if>
-					
 						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='Book'">
 							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:book&lt;/dcterms:type&gt;
 							&lt;relatedItem:constituent&gt;
@@ -1069,9 +1056,42 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
 						</xsl:if>	  										
 						
 						<!--Angabe der Unterordnungen mit ihren jeweiligen Überordnungen-->
-						<!--...-->
+     					<xsl:if test="mods:genre[@authority='local']='Contribution'">
+							<xsl:choose>
+								<xsl:when test="mods:relatedItem[@type='host']/mods:genre[@authority='local']='ConferenceProceedings'">&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:contribution_in_conference&lt;/dcterms:type&gt;</xsl:when>
+								<xsl:otherwise>&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:contribution_in_compilation&lt;/dcterms:type&gt;</xsl:otherwise>
+							</xsl:choose>
+							&lt;relatedItem:host&gt;
+								genre:<xsl:value-of select="mods:relatedItem[@type='host']/mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;
+						</xsl:if>
 						
-					
+     					<xsl:if test="mods:genre[@authority='local']='ContributionInLegalCommentary'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:contribution_in_legal_commentary&lt;/dcterms:type&gt;
+							&lt;relatedItem:host&gt;
+								genre:<xsl:value-of select="mods:relatedItem[@type='host']/mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;
+						</xsl:if>						
+
+     					<xsl:if test="mods:genre[@authority='local']='JournalArticle'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:journal_article&lt;/dcterms:type&gt;
+							&lt;relatedItem:host&gt;
+								genre:<xsl:value-of select="mods:relatedItem[@type='host']/mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;
+						</xsl:if>		
+						
+     					<xsl:if test="mods:genre[@authority='local']='NewspaperArticle'">
+							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:newspaper_article&lt;/dcterms:type&gt;
+							&lt;relatedItem:host&gt;
+								genre:<xsl:value-of select="mods:relatedItem[@type='host']/mods:genre[@authority='local']"/>
+								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
+							&lt;/relatedItem:constituent&gt;
+						</xsl:if>								
+							
+
 INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
 &lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://erlangen-crm.org/efrbroo/121016/F18_Serial_Work&gt; .
 &lt;<xsl:value-of select="$journal-uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://rdaregistry.info/Elements/c/Work&gt; .
