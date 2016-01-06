@@ -929,6 +929,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
                     <!-- TODO genre Proceeding -->
 						<xsl:if test="current()/mods:relatedItem[@type='host']/mods:genre[@authority='local']='Book'">
 							&lt;dcterms:type&gt;http://data.uaruhr.de/resource/concept:book&lt;/dcterms:type&gt;
+		            <!-- Bei der Anzeige der jeweils zugehörenden Unterordnung Darstellung über "relatedItem:constituent"-Klammer gewählt, auf genre und recordIdentifier beschränkt -->
 							&lt;relatedItem:constituent&gt;
 								genre:<xsl:value-of select="mods:genre[@authority='local']"/>
 								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
@@ -1064,7 +1065,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
 							&lt;relatedItem:host&gt;
 								genre:<xsl:value-of select="mods:relatedItem[@type='host']/mods:genre[@authority='local']"/>
 								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
-							&lt;/relatedItem:constituent&gt;
+							&lt;/relatedItem:host&gt;
 						</xsl:if>
 						
      					<xsl:if test="mods:genre[@authority='local']='ContributionInLegalCommentary'">
@@ -1072,7 +1073,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
 							&lt;relatedItem:host&gt;
 								genre:<xsl:value-of select="mods:relatedItem[@type='host']/mods:genre[@authority='local']"/>
 								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
-							&lt;/relatedItem:constituent&gt;
+							&lt;/relatedItem:host&gt;
 						</xsl:if>						
 
      					<xsl:if test="mods:genre[@authority='local']='JournalArticle'">
@@ -1080,7 +1081,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
 							&lt;relatedItem:host&gt;
 								genre:<xsl:value-of select="mods:relatedItem[@type='host']/mods:genre[@authority='local']"/>
 								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
-							&lt;/relatedItem:constituent&gt;
+							&lt;/relatedItem:host&gt;
 						</xsl:if>		
 						
      					<xsl:if test="mods:genre[@authority='local']='NewspaperArticle'">
@@ -1088,7 +1089,7 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-internal-public&g
 							&lt;relatedItem:host&gt;
 								genre:<xsl:value-of select="mods:relatedItem[@type='host']/mods:genre[@authority='local']"/>
 								recordIdentifier:<xsl:value-of select="mods:recordInfo/mods:recordIdentifier"/>
-							&lt;/relatedItem:constituent&gt;
+							&lt;/relatedItem:host&gt;
 						</xsl:if>								
 							
 
