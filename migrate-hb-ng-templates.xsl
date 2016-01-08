@@ -126,12 +126,12 @@ INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
 			</xsl:choose>
 		</xsl:variable> 
 
-INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-public&gt; {
+INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/main-entities-non-public&gt; {
 &lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#type&gt; &lt;http://www.w3.org/2000/01/rdf-schema#Resource&gt; .
 &lt;<xsl:value-of select="$uuid"/>&gt; &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#value&gt;
 <xsl:call-template name="string-replace-all"><xsl:with-param name="text" select="$output" /><xsl:with-param name="replace" select="'&quot;'" /><xsl:with-param name="by" select="'\&quot;'" /></xsl:call-template>" .
 }};
-INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-public&gt; {
+INSERT DATA { GRAPH &lt;http://data.ub.tu-dortmund.de/graph/ap-vivo-non-public&gt; {
 &lt;<xsl:value-of select="$baseuri" /><xsl:value-of select="$recordIdentifier"/>&gt; &lt;<xsl:value-of select="$uri"/>&gt; &lt;<xsl:value-of select="$uuid"/>&gt; .
 &lt;<xsl:value-of select="$uuid"/>/about&gt; &lt;http://purl.org/dc/terms#accessRights> "non-public" .
 }};
